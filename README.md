@@ -15,6 +15,6 @@ dans la région, le propriétaire de cette SPFPL souhaite une application web pe
 
 ------------------------------------------------------------------------------------------------------------
 
-Ce projet est réalisé par : [Maceo GONDRE](https://github.com/Maceoggit) et moi-même, [Rhizlène ALFARDOUS](https://github.com/Rhizlene)
+Ce projet est réalisé par : [Maceo GONDRE](https://github.com/Maceoggit) et [Rhizlène ALFARDOUS](https://github.com/Rhizlene)
 
 
