@@ -1,7 +1,9 @@
 
 # Pharmacie_Sautheuz
+<div style="max-height: 200px;" align="center">
+    <img src="public/images/logo_pharmacie.png" />
+</div>
 
-<img src="public/images/logo_pharmacie.png" />
 
 ------------------------------------------------------------------------------------------------------------
 
