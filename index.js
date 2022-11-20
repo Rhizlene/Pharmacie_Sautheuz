@@ -103,3 +103,55 @@ app.get('/intranet/medicament', function(req, res) {
         }
     });
 });
+
+app.get('/intranet/diplome', function(req, res) {
+    mysqlconnexion.query("SELECT * FROM diplome", (err, lignes, champs) => {
+        if (!err) {
+            console.log(lignes);
+            res.render("intranetDiplome", {diplome : lignes});
+        }
+    });
+});
+
+app.get('/intranet/formulaire/medecin', function(req, res) {
+    mysqlconnexion.query("SELECT * FROM diplome", (err, lignes, champs) => {
+        if (!err) {
+            console.log(lignes);
+            res.render("formulaireMedecin", {formMedecin : lignes});
+        }
+    });
+});
+
+app.get('/intranet/formulaire/ordonnance', function(req, res) {
+    mysqlconnexion.query("SELECT pat_Nom, pat_Prenom, pat_Naissance, med_Nom, med_Prenom, med_Num, dip_Nom, path_Nom, medic_Nom, medic_Type FROM patient, medecin, diplome, pathologie, medicament", (err, lignes, champs) => {
+        if (!err) {
+            console.log(lignes);
+            res.render("formulaireOrdonnance", {formOrdonnance : lignes});
+        }
+    });
+});
+
+app.get('/intranet/formulaire/patient', function(req, res) {
+    mysqlconnexion.query("SELECT * FROM mutuelle", (err, lignes, champs) => {
+        if (!err) {
+            console.log(lignes);
+            res.render("formulairePatient", {formPatient : lignes});
+        }
+    });
+});
+
+app.get('/intranet/formulaire/mutuelle', function(req, res) {
+    res.render("formulaireMutuelle");
+});
+
+app.get('/intranet/formulaire/pathologie', function(req, res) {
+    res.render("formulairePathologie");
+});
+
+app.get('/intranet/formulaire/medicament', function(req, res) {
+    res.render("formulaireMedicament");
+});
+
+app.get('/intranet/formulaire/diplome', function(req, res) {
+    res.render("formulaireDiplome");
+});
