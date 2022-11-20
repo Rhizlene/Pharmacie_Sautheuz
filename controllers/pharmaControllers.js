@@ -21,10 +21,30 @@ const pharmacie_intranetOrdonnance = (req, res) => {
     modele.find()
 }
 
+const pharmacie_intranetPatient = (req, res) => {
+    modele.find()
+}
+
+const pharmacie_intranetMutuelle = (req, res) => {
+    modele.find()
+}
+
+const pharmacie_intranetPathologie = (req, res) => {
+    modele.find()
+}
+
+const pharmacie_intranetMedicament = (req, res) => {
+    modele.find()
+}
+
 module.exports = {
     pharmacie_accueil,
     pharmacie_inscription,
     pharmacie_intranetAccueil,
     pharmacie_intranetMedecin,
-    pharmacie_intranetOrdonnance
+    pharmacie_intranetOrdonnance,
+    pharmacie_intranetPatient,
+    pharmacie_intranetMutuelle,
+    pharmacie_intranetPathologie,
+    pharmacie_intranetMedicament
 }
