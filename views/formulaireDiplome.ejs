@@ -7,14 +7,13 @@
     <br>
     <br>
 
-    <div>
-        <strong>Mutuelles :</strong>
-        <ul> <% mutuelle.forEach(function(res){ %>
-            <li>
-                <%= res.mut_Nom %> <strong>Taux de remboursement de</strong> <%= res.mut_Taux %>%
-            </li>
-        <% }) %> 
-        </ul>
+    <div> 
+        <form action="">
+            Nom : 
+            <input type="text" id="dipNom">
+
+            <button type="submit" class="btn btn-success" id="btnAjouterDiplome">Ajouter</button>
+        </form>
     </div>
 
 <%- include('footer') %>

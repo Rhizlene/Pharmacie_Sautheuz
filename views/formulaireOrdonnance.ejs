@@ -1,0 +1,69 @@
+<%- include('header') %>
+
+    <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis architecto voluptas ullam enim quae necessitatibus molestiae dignissimos fugiat. Odit non saepe voluptate commodi, vero fugit ut soluta dolore sunt quae nobis officiis accusantium eius dolorum optio repudiandae nesciunt. Deserunt odit, corrupti inventore praesentium, unde quos fugit, facilis eius necessitatibus commodi vitae consequatur est at illo ex optio sapiente. Reprehenderit aperiam nam velit, dolore esse ullam consequuntur laborum vel et quasi est facere deleniti quam tenetur numquam praesentium tempore laboriosam. Blanditiis dicta similique nulla, distinctio a neque natus maxime! Ea iste harum illo obcaecati nemo debitis quaerat quidem voluptates et molestias aut optio possimus similique odit, repellendus minima asperiores quam libero, in a delectus? Corrupti voluptatum et perspiciatis deleniti, dolore id! ipsum dolor sit amet consectetur adipisicing elit. Optio ducimus enim quod ullam similique tenetur laboriosam amet rerum eligendi? Earum illum fugiat dignissimos consectetur ea architecto harum doloribus eligendi aliquid?
+    </div>
+
+    <br>
+    <br>
+
+    <div> 
+        <form action="">
+            Date : 
+            <input type="date" id="ordoDate">
+
+            Patient:
+            <select name="choosePatient" id="choosePatient">
+                <% formOrdonnance.forEach(function(res){ %>
+                    <option value="<%= res.pat_Nom %>_<%= res.pat_Prenom %>"><%= res.pat_Nom %> <%= res.pat_Prenom %></option>
+                <% }) %> 
+            </select>
+
+            Naissance du patient (ajax pour afficher direct son age en fonction du dernier select):
+            <input type="date" id="ordoPatNaissance">
+
+            Médecin :
+            <select name="chooseMedecin" id="chooseMedecin">
+                <% formOrdonnance.forEach(function(res){ %>
+                    <option value="<%= res.med_Nom %> <%= res.med_Prenom %>"><%= res.med_Nom %> <%= res.med_Prenom %></option>
+                <% }) %> 
+            </select>
+            
+            Numéro de téléphone mobile du médecin (ajax):
+            <input type="text" id="ordoMedNum">
+
+            Diplôme du médecin (ajax):
+            <input type="text" id="ordoMedDiplome">
+
+            Pathologie:
+            <select name="choosePathologie" id="choosePathologie">
+                <% formOrdonnance.forEach(function(res){ %>
+                    <option value="<%= res.path_Nom %>"><%= res.path_Nom %></option>
+                <% }) %> 
+            </select>
+
+            Quantité du médicament (en boites):
+            <input type="number" id="ordoMedicQte">
+
+            Durée du traitement (en mois):
+            <input type="number" id="ordoPosDuree">
+
+            Médicament:
+            <select name="chooseMedicament" id="chooseMedicament">
+                <% formOrdonnance.forEach(function(res){ %>
+                    <option value="<%= res.medic_Nom %>"><%= res.medic_Nom %></option>
+                <% }) %> 
+            </select>
+
+            Type de médicament:
+            <select name="chooseMedicType" id="chooseMedicType">
+                <% formOrdonnance.forEach(function(res){ %>
+                    <option value="<%= res.medic_Type %>"><%= res.medic_Type %></option>
+                <% }) %> 
+            </select>
+
+            <button type="submit" class="btn btn-success" id="btnAjouterOrdonnance">Ajouter</button>
+        </form>
+    </div>
+
+<%- include('footer') %>

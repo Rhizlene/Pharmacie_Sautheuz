@@ -7,14 +7,32 @@
     <br>
     <br>
 
-    <div>
-        <strong>Mutuelles :</strong>
-        <ul> <% mutuelle.forEach(function(res){ %>
-            <li>
-                <%= res.mut_Nom %> <strong>Taux de remboursement de</strong> <%= res.mut_Taux %>%
-            </li>
-        <% }) %> 
-        </ul>
+    <div> 
+        <form action="">
+            Nom : 
+            <input type="text" id="patNom">
+
+            Prenom :
+            <input type="text" id="patPrenom">
+
+            Naissance :
+            <input type="date" id="patNaissance">
+
+            Numéro de sécurité sociale :
+            <input type="text" id="patNumSecu">
+
+            Numéro de mutuelle (AMC) :
+            <input type="text" id="patNumMut">
+
+            Mutuelle :
+            <select name="chooseMut" id="chooseMut">
+                <% formPatient.forEach(function(res){ %>
+                    <option value="<%= res.mut_Nom %>"><%= res.mut_Nom %></option>
+                <% }) %> 
+            </select>
+
+            <button type="submit" class="btn btn-success" id="btnAjouterPatient">Ajouter</button>
+        </form>
     </div>
 
 <%- include('footer') %>
