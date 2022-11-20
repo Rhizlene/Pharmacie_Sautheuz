@@ -7,10 +7,11 @@
     <br>
     <br>
 
-    <div> 
-        <ul> <% medecin.forEach(function(res){ %>
+    <div>
+        <strong>Mutuelles :</strong>
+        <ul> <% mutuelle.forEach(function(res){ %>
             <li>
-                <strong>Monsieur</strong> <%= res.med_Nom %> <%= res.med_Prenom %>, <%= res.dip_Nom %> - <strong>Num :</strong> <%= res.med_Num %> 
+                <%= res.mut_Nom %> - <%= res.mut_Taux %>%
             </li>
         <% }) %> 
         </ul>

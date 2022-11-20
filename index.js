@@ -67,3 +67,39 @@ app.get('/intranet/ordonnance', function(req, res) {
         }
     });
 });
+
+app.get('/intranet/patient', function(req, res) {
+    mysqlconnexion.query("SELECT * FROM patient, mutuelle WHERE pat_MutId=mut_Id", (err, lignes, champs) => {
+        if (!err) {
+            console.log(lignes);
+            res.render("intranetPatient", {patient : lignes});
+        }
+    });
+});
+
+app.get('/intranet/mutuelle', function(req, res) {
+    mysqlconnexion.query("SELECT * FROM mutuelle", (err, lignes, champs) => {
+        if (!err) {
+            console.log(lignes);
+            res.render("intranetMutuelle", {mutuelle : lignes});
+        }
+    });
+});
+
+app.get('/intranet/pathologie', function(req, res) {
+    mysqlconnexion.query("SELECT * FROM pathologie", (err, lignes, champs) => {
+        if (!err) {
+            console.log(lignes);
+            res.render("intranetPathologie", {pathologie : lignes});
+        }
+    });
+});
+
+app.get('/intranet/medicament', function(req, res) {
+    mysqlconnexion.query("SELECT * FROM medicament", (err, lignes, champs) => {
+        if (!err) {
+            console.log(lignes);
+            res.render("intranetMedicament", {medicament : lignes});
+        }
+    });
+});

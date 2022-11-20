@@ -8,9 +8,10 @@
     <br>
 
     <div> 
-        <ul> <% medecin.forEach(function(res){ %>
+        <strong>Pathologies :</strong>
+        <ul> <% pathologie.forEach(function(res){ %>
             <li>
-                <strong>Monsieur</strong> <%= res.med_Nom %> <%= res.med_Prenom %>, <%= res.dip_Nom %> - <strong>Num :</strong> <%= res.med_Num %> 
+                <%= res.path_Nom %> 
             </li>
         <% }) %> 
         </ul>

@@ -12,14 +12,8 @@
     "ejs": "^3.1.8",
     "express": "^4.18.2",
     "iniparser": "^1.0.5",
-<<<<<<< HEAD
     "mysql": "^2.18.1",
     "nodemon": "^2.0.20"
   },
   "description": "<div style=\"max-height: 150px;\" align=\"center\">     <img src=\"public/images/logo_pharmacie.png\" /> </div>"
-=======
-    "nodemon": "^2.0.20"
-  },
-  "description": ""
->>>>>>> 2d5770664c37bea8df3fd1c94137d091014df9ca
 }
