@@ -3,7 +3,8 @@
 --------------------------------------------------------------*/
 
 #header {
-  height: 80px;
+  height: 60px;
+  width: 100%;
   padding: 20px 0;
   background: #fff;
   display:block;
@@ -38,11 +39,83 @@ form {
   white-space : nowrap !important;
   text-align: center;
   align-items: center !important;
+  padding-right: 20px;
 }
 
 body{
-  padding-top: 80px;
+  padding-top: 65px;
 }
+
+/*--------------------------------------------------------------
+# Menu deroulant
+--------------------------------------------------------------*/
+
+#menu-deroulant, #menu-deroulant ul{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+}
+
+#menu-deroulant li{
+  display: inline-block;
+  position: relative;
+}
+
+#menu-deroulant ul li{
+  display: inherit;
+}
+
+#li-menu {
+  width: 140px;
+}
+
+#menu-deroulant ul{
+  position: absolute;
+  z-index: 1000;
+  max-height: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  -moz-transition: .8s all .3s;
+  -webkit-transition: .8s all .3s;
+  transition: .8s all .3s;
+
+}
+
+#menu-deroulant li:hover ul{
+  max-height: 15em;
+}
+
+/* les a href */
+#menu-deroulant a{
+  text-decoration: none;
+  color: #000000;
+  display: block;
+  padding: 8px 32px;
+  font-size: 16px;
+}
+
+#menu-deroulant ul a{
+  padding: 8px 0;
+  background-color: #fff;
+}
+
+#menu-deroulant li:hover li a{
+  color: #000300;
+  text-transform: inherit;
+  
+}
+
+#menu-deroulant li li:hover a{
+  background-color: #eaf1ea;
+}
+  
+#menu-deroulant li:hover a, #menu-deroulant li li:hover a{
+  color: #008000;
+}
+
+
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
@@ -60,17 +133,27 @@ body{
     text-align: center;
     padding-top: 50px;
   }
-  
-  #footer .credits {
-    font-size: 13px;
-    color: #f1f7ff;
-  }
-  
-  #footer .credits a {
-    color: #bfddfe;
-  }
-  
-  #footer .credits a:hover {
-    color: #f1f7ff;
-  }
-  
+
+/*--------------------------------------------------------------
+# Responsive
+--------------------------------------------------------------*/
+
+
+/*----- TABLETTE AND MOBILE ---*/
+@media screen and (max-width: 991px) {
+ 
+}
+
+
+h3 {
+  text-align: center;
+  color: white;
+}
+
+#img-darken{
+  height: 100%;
+  background-size: cover;
+  background-blend-mode: darken;
+  background-position: center;
+  background-repeat: no-repeat;
+}
