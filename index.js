@@ -2,7 +2,7 @@
 const routeur = require('./routes/pharmaRoute.js');
 const express = require('express');
 const ejs = require('ejs');
-const mysql = require('mysql');
+const mysql = require('mysql2');
 let iniparser = require('iniparser');
 
 // activer les dépendances pour Express et EJS
@@ -23,7 +23,7 @@ let mysqlconnexion = mysql.createConnection({
 })
 
 mysqlconnexion.connect((err) => {
-    if (!err) console.log('BDD connectée.')
+    if (!err) console.log('BDD connectée. =====================================================================================')
     else console.log('BDD connexion échouée \n Erreur: '+JSON.stringify(err))
 })
 
@@ -123,11 +123,37 @@ app.get('/intranet/formulaire/medecin', function(req, res) {
 });
 
 app.get('/intranet/formulaire/ordonnance', function(req, res) {
-    mysqlconnexion.query("SELECT pat_Nom, pat_Prenom, pat_Naissance, med_Nom, med_Prenom, med_Num, dip_Nom, path_Nom, medic_Nom, medic_Type FROM patient, medecin, diplome, pathologie, medicament", (err, lignes, champs) => {
+    let data = {ordonnancePat : {}, ordonnanceMed : {}, ordonnancePath : {}, ordonnanceMedic : {}, ordonnanceDip : {}};
+    mysqlconnexion.query("SELECT pat_Nom, pat_Prenom, pat_Naissance FROM patient", (err, lignes, champs) => {
         if (!err) {
             console.log(lignes);
-            res.render("formulaireOrdonnance", {formOrdonnance : lignes});
+            data.ordonnancePat = lignes;
         }
+    });
+    mysqlconnexion.query("SELECT med_Nom, med_Prenom, med_Num FROM medecin", (err, lignes, champs) => {
+        if (!err) {
+            console.log(lignes);
+            data.ordonnanceMed = lignes;
+        }
+    });
+    mysqlconnexion.query("SELECT dip_Nom FROM diplome", (err, lignes, champs) => {
+        if (!err) {
+            console.log(lignes);
+            data.ordonnanceDip = lignes;
+        }
+    });
+    mysqlconnexion.query("SELECT path_Nom FROM pathologie", (err, lignes, champs) => {
+        if (!err) {
+            console.log(lignes);
+            data.ordonnancePath = lignes;
+        }
+    });
+    mysqlconnexion.query("SELECT medic_Nom, medic_Type FROM medicament", (err, lignes, champs) => {
+        if (!err) {
+            console.log(lignes);
+            data.ordonnanceMedic = lignes;
+        }
+        res.render("formulaireOrdonnance", {formOrdonnancePat : data.ordonnancePat, formOrdonnanceMed : data.ordonnanceMed, formOrdonnanceDip : data.ordonnanceDip, formOrdonnancePath : data.ordonnancePath, formOrdonnanceMedic : data.ordonnanceMedic});
     });
 });
 
