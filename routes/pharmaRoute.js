@@ -20,5 +20,12 @@ routeur.get('/intranet/formulaire/pathologie', pharmaControle.pharmacie_formulai
 routeur.get('/intranet/formulaire/medicament', pharmaControle.pharmacie_formulaireMedicament)
 routeur.get('/intranet/formulaire/diplome', pharmaControle.pharmacie_formulaireDiplome)
 routeur.get('/intranet/formulaire/ordonnance', pharmaControle.pharmacie_formulaireOrdonnance)
+routeur.get('/intranet/recherche/medecin', pharmaControle.pharmacie_rechercheMedecin)
+routeur.get('/intranet/recherche/patient', pharmaControle.pharmacie_recherchePatient)
+routeur.get('/intranet/recherche/ordonnance', pharmaControle.pharmacie_rechercheOrdonnance)
+routeur.get('/intranet/recherche/pathologie', pharmaControle.pharmacie_recherchePathologie)
+routeur.get('/intranet/recherche/medicament', pharmaControle.pharmacie_rechercheMedicament)
+routeur.get('/intranet/recherche/diplome', pharmaControle.pharmacie_rechercheDiplome)
+routeur.get('/intranet/recherche/mutuelle', pharmaControle.pharmacie_rechercheMutuelle)
 
 module.exports = routeur;

@@ -7,29 +7,7 @@
     <br>
     <br>
 
-    <div> 
-        <form action="/intranet/formulaire/medecin" method="POST" enctype="application/x-www-formurlencoded">
-            Nom : 
-            <input type="text" id="medNom">
+    <input type="text" placeholder="Rechercher une mutuelle">
 
-            Prenom :
-            <input type="text" id="medPrenom">
-
-            Diplome :
-            <select name="chooseDip" id="chooseDip">
-                <% formMedecin.forEach(function(res){ %>
-                    <option value="<%= res.dip_Nom %>"><%= res.dip_Nom %></option>
-                <% }) %> 
-            </select>
-            
-            Numéro de téléphone mobile :
-            <input type="text" id="medNum">
-
-            <!-- Permis d'exercer :
-            <button id="btnDeposerPermis">Déposer un fichier</button> -->
-
-            <button type="submit" class="btn btn-success" id="btnAjouterMedecin">Ajouter</button>
-        </form>
-    </div>
 
 <%- include('footer') %>

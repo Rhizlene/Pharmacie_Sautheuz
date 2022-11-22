@@ -50,6 +50,8 @@ app.get('/intranet/accueil', function(req, res) {
     res.render('intranetAccueil');
 });
 
+// AFFICHER
+
 app.get('/intranet/medecin', function(req, res) {
     mysqlconnexion.query("SELECT * FROM medecin, diplome WHERE med_DipId=dip_ID", (err, lignes, champs) => {
         if (!err) {
@@ -113,6 +115,8 @@ app.get('/intranet/diplome', function(req, res) {
     });
 });
 
+// FORMULAIRE
+
 app.get('/intranet/formulaire/medecin', function(req, res) {
     mysqlconnexion.query("SELECT * FROM diplome", (err, lignes, champs) => {
         if (!err) {
@@ -122,7 +126,39 @@ app.get('/intranet/formulaire/medecin', function(req, res) {
     });
 });
 
+app.post('/intranet/formulaire/medecin', function(req, res) {
+    let medNom = req.body.medNom
+    let medPrenom = req.body.medPrenom
+    let medDiplome = req.body.chooseDip
+    let medNum = req.body.medNum
+
+    let requeteSQL = "INSERT INTO medecin (med_Nom, med_Prenom, med_DipId, med_Num) VALUES (" + medNom + "," + medPrenom + "," + medDiplome + "," + medNum + ");";
+    console.log("Requete : " + requeteSQL);
+    mysqlconnexion.query( requeteSQL, (err, lignes, champs) => {
+        if (!err) {
+            console.log("Insertion terminé");
+            res.redirect("/intranet/formulaire/medecin");
+        } else {
+            console.log("Erreur lors de l'enregistrment");
+            res.send("Erreur ajout : " + JSON.stringify(err));
+        }
+    })
+});
+
 app.get('/intranet/formulaire/ordonnance', function(req, res) {
+    // try {
+    //     const someRows = mysqlconnexion.query('SELECT pat_Nom, pat_Prenom, pat_Naissance FROM patient');
+    //     const medRows = mysqlconnexion.query('SELECT med_Nom, med_Prenom, med_Num FROM medecin');
+    //     console.log('*************** patRows ***************', someRows);
+    //     console.log('*************** medRows ***************', medRows);
+    //     console.log('*** double ***', medRows, someRows);
+    // } catch (err) {
+    //     console.log(err);
+    // } finally {
+    //     mysqlconnexion.close();
+    // }
+
+
     let data = {ordonnancePat : {}, ordonnanceMed : {}, ordonnancePath : {}, ordonnanceMedic : {}, ordonnanceDip : {}};
     mysqlconnexion.query("SELECT pat_Nom, pat_Prenom, pat_Naissance FROM patient", (err, lignes, champs) => {
         if (!err) {
@@ -180,4 +216,34 @@ app.get('/intranet/formulaire/medicament', function(req, res) {
 
 app.get('/intranet/formulaire/diplome', function(req, res) {
     res.render("formulaireDiplome");
+});
+
+// RECHERCHE
+
+app.get('/intranet/recherche/medecin', function(req, res) {
+    res.render("rechercheMedecin");
+});
+
+app.get('/intranet/recherche/patient', function(req, res) {
+    res.render("recherchePatient");
+});
+
+app.get('/intranet/recherche/ordonnance', function(req, res) {
+    res.render("rechercheOrdonnance");
+});
+
+app.get('/intranet/recherche/pathologie', function(req, res) {
+    res.render("recherchePathologie");
+});
+
+app.get('/intranet/recherche/mutuelle', function(req, res) {
+    res.render("rechercheMutuelle");
+});
+
+app.get('/intranet/recherche/medicament', function(req, res) {
+    res.render("rechercheMedicament");
+});
+
+app.get('/intranet/recherche/diplome', function(req, res) {
+    res.render("rechercheDiplome");
 });

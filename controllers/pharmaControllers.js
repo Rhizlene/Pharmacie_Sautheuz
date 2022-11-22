@@ -69,6 +69,34 @@ const pharmacie_formulaireOrdonnance= (req, res) => {
     modele.find()
 }
 
+const pharmacie_rechercheMedecin= (req, res) => {
+    modele.find()
+}
+
+const pharmacie_recherchePatient= (req, res) => {
+    modele.find()
+}
+
+const pharmacie_rechercheOrdonnance= (req, res) => {
+    modele.find()
+}
+
+const pharmacie_rechercheMutuelle= (req, res) => {
+    modele.find()
+}
+
+const pharmacie_rechercheMedicament= (req, res) => {
+    modele.find()
+}
+
+const pharmacie_rechercheDiplome= (req, res) => {
+    modele.find()
+}
+
+const pharmacie_recherchePathologie= (req, res) => {
+    modele.find()
+}
+
 module.exports = {
     pharmacie_accueil,
     pharmacie_inscription,
@@ -86,5 +114,12 @@ module.exports = {
     pharmacie_formulairePathologie,
     pharmacie_formulaireMedicament,
     pharmacie_formulaireDiplome,
-    pharmacie_formulaireOrdonnance
+    pharmacie_formulaireOrdonnance,
+    pharmacie_rechercheMedecin,
+    pharmacie_recherchePatient,
+    pharmacie_rechercheOrdonnance,
+    pharmacie_rechercheMutuelle,
+    pharmacie_rechercheMedicament,
+    pharmacie_rechercheDiplome,
+    pharmacie_recherchePathologie
 }
