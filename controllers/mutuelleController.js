@@ -9,10 +9,10 @@ const controlMut = {
             const data = await modelMut.Mutuelle.afficherMutuelle()
 
             if (data) {
-                res.render('patient', {dataMutuelle : data})
+                res.render('intranetMutuelle', {dataMutuelle : data})
 
             }else {
-                res.render('patient', {dataMutuelle : {} })
+                res.render('intranetMutuelle', {dataMutuelle : {} })
             } 
         } catch (error) {
             console.log(error)

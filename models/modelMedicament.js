@@ -22,7 +22,7 @@ const Medicament = {
 
         return new Promise((reussi, echec) => {
 
-            mysqlconnexion.query("SELECT * FROM pathologie", (err, lignes, champs) => {
+            mysqlconnexion.query("SELECT * FROM medicament", (err, lignes, champs) => {
 
                 if (err) {
 

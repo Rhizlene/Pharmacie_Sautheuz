@@ -1,6 +1,8 @@
 // inclure les dépendances et middlewares
 const mysql = require('mysql2');
 let iniparser = require('iniparser');
+const bodyparser = require('body-parser')
+const { urlencoded } = require('body-parser')
 
 // activer les dépendances pour la bdd
 let configDB = iniparser.parseSync('./DB.ini')

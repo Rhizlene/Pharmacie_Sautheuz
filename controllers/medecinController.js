@@ -9,10 +9,10 @@ const controlMed = {
             const data = await modelMed.Medecin.afficherMedecin()
 
             if (data) {
-                res.render('/medecin', {dataMedecin : data})
+                res.render('intranetMedecin', {dataMedecin : data})
 
             }else {
-                res.render('/medecin', {dataMedecin : {} })
+                res.render('intranetMedecin', {dataMedecin : {} })
             } 
         } catch (error) {
             console.log(error)
@@ -26,10 +26,10 @@ const controlMed = {
             const data = await modelMed.Medecin.formulaireMedecin()
 
             if (data) {
-                res.render('/formulaire/medecin', {formMedecin : data})
+                res.render('formulaireMedecin', {formMedecin : data})
 
             }else {
-                res.render('/formulaire/medecin', {formMedecin : {} })
+                res.render('formulaireMedecin', {formMedecin : {} })
             } 
         } catch (error) {
             console.log(error)

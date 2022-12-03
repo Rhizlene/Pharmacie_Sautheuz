@@ -3,7 +3,7 @@ const express = require('express');
 const routeur = express.Router();
 const ctrlMedecin = require('../controllers/medecinController.js');
 
-routeur.get('/medecin', ctrlMedecin.controlMed.afficherMedecin)
-routeur.get('/formulaire/medecin', ctrlMedecin.controlMed.formulaireMedecin)
+routeur.get('/', ctrlMedecin.controlMed.afficherMedecin)
+routeur.get('/formulaire', ctrlMedecin.controlMed.formulaireMedecin)
 
 module.exports = routeur;

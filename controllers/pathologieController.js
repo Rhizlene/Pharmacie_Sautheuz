@@ -9,10 +9,10 @@ const controlPath = {
             const data = await modelPath.Pathologie.afficherPathologie()
 
             if (data) {
-                res.render('pathologie', {dataPathologie : data})
+                res.render('intranetPathologie', {dataPathologie : data})
 
             }else {
-                res.render('pathologie', {dataPathologie : {} })
+                res.render('intranetPathologie', {dataPathologie : {} })
             } 
         } catch (error) {
             console.log(error)

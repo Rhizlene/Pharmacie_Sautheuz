@@ -3,6 +3,6 @@ const express = require('express');
 const routeur = express.Router();
 const ctrlMutuelle = require('../controllers/mutuelleController.js');
 
-routeur.get('/mutuelle', ctrlMutuelle.controlPat.afficherPatient)
+routeur.get('/', ctrlMutuelle.controlMut.afficherMutuelle)
 
 module.exports = routeur;

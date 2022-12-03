@@ -9,10 +9,10 @@ const controlOrdo = {
             const data = await modelOrdo.Ordonnance.afficherOrdonnance()
 
             if (data) {
-                res.render('ordonnance', {dataOrdonnance : data})
+                res.render('intranetOrdonnance', {dataOrdonnance : data})
 
             }else {
-                res.render('ordonnance', {dataOrdonnance : {} })
+                res.render('intranetOrdonnance', {dataOrdonnance : {} })
             } 
         } catch (error) {
             console.log(error)

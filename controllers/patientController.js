@@ -9,10 +9,10 @@ const controlPat = {
             const data = await modelPat.Patient.afficherPatient()
 
             if (data) {
-                res.render('patient', {dataPatient : data})
+                res.render('intranetPatient', {dataPatient : data})
 
             }else {
-                res.render('patient', {dataPatient : {} })
+                res.render('intranetPatient', {dataPatient : {} })
             } 
         } catch (error) {
             console.log(error)
@@ -26,10 +26,10 @@ const controlPat = {
             const data = await modelPat.Patient.formulairePatient()
 
             if (data) {
-                res.render('formulaire/patient', {formPatient : data})
+                res.render('formulairePatient', {formPatient : data})
 
             }else {
-                res.render('formulaire/patient', {formPatient : {} })
+                res.render('formulairePatient', {formPatient : {} })
             } 
         } catch (error) {
             console.log(error)

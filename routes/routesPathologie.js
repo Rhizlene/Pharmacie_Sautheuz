@@ -3,6 +3,6 @@ const express = require('express');
 const routeur = express.Router();
 const ctrlPathologie = require('../controllers/pathologieController.js');
 
-routeur.get('/pathologie', ctrlPathologie.controlPath.afficherPathologie)
+routeur.get('/', ctrlPathologie.controlPath.afficherPathologie)
 
 module.exports = routeur;

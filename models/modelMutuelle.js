@@ -22,7 +22,7 @@ const Mutuelle = {
 
         return new Promise((reussi, echec) => {
 
-            mysqlconnexion.query("SELECT * FROM pathologie", (err, lignes, champs) => {
+            mysqlconnexion.query("SELECT * FROM mutuelle", (err, lignes, champs) => {
 
                 if (err) {
 

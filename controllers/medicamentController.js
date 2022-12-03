@@ -9,10 +9,10 @@ const controlMedic = {
             const data = await modelMedic.Medicament.afficherMedicament()
 
             if (data) {
-                res.render('medicament', {dataMedicament : data})
+                res.render('intranetMedicament', {dataMedicament : data})
 
             }else {
-                res.render('medicament', {dataMedicament : {} })
+                res.render('intranetMedicament', {dataMedicament : {} })
             } 
         } catch (error) {
             console.log(error)

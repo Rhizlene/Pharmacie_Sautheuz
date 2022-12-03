@@ -1,16 +1,16 @@
 // inclure les dépendances et middlewares
 const express = require('express');
 const ejs = require('ejs');
-const mysql = require('mysql2');
-let iniparser = require('iniparser');
-const bodyparser = require('body-parser')
-const { urlencoded } = require('body-parser')
+const path = require('path');
 
-// REAL 
 
+// Importer les routes
 const medecinRoutes = require('./routes/routesMedecin.js');
-
-
+const patientRoutes = require('./routes/routesPatient.js');
+const medicamentRoutes = require('./routes/routesMedicament.js');
+const pathologieRoutes = require('./routes/routesPathologie.js');
+const mutuelleRoutes = require('./routes/routesMutuelle.js');
+const ordonnanceRoutes = require('./routes/routesOrdonnance.js');
 
 // activer les dépendances pour Express et EJS
 let app = express()
@@ -44,6 +44,12 @@ app.get('/accueil', function(req, res) {
     res.render('intranetAccueil');
 });
 
-// REAL 
+
+// utiliser les routes
 
 app.use('/medecin', medecinRoutes);
+app.use('/patient', patientRoutes);
+app.use('/mutuelle', mutuelleRoutes);
+app.use('/medicament', medicamentRoutes);
+app.use('/pathologie', pathologieRoutes);
+app.use('/ordonnance', ordonnanceRoutes);
