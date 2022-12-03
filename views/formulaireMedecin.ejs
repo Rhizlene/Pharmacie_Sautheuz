@@ -8,25 +8,25 @@
     <br>
 
     <div> 
-        <form action="/intranet/formulaire/medecin" method="POST" enctype="application/x-www-formurlencoded">
-            Nom : 
-            <input type="text" id="medNom">
+        <form action="/medecin" method="POST" enctype="application/x-www-form-urlencoded">
+            <label for="medNom">Nom : </label>
+            <input type="text" id="medNom" name="medNom" >
+            
+            <label for="medPrenom">Prenom :</label>
+            <input type="text" id="medPrenom" name="medPrenom">
 
-            Prenom :
-            <input type="text" id="medPrenom">
-
-            Diplome :
-            <select name="chooseDip" id="chooseDip">
+            <label for="chooseDip">Diplome :</label>
+            <select name="chooseDip" id="chooseDip" name="chooseDip">
                 <% formMedecin.forEach(function(res){ %>
                     <option value="<%= res.dip_Nom %>"><%= res.dip_Nom %></option>
                 <% }) %> 
             </select>
             
-            Numéro de téléphone mobile :
-            <input type="text" id="medNum">
+            <label for="medNum">Numéro de téléphone mobile :</label>
+            <input type="text" id="medNum" name="medNum">
 
-            <!-- Permis d'exercer :
-            <button id="btnDeposerPermis">Déposer un fichier</button> -->
+            <!-- <label for="btnDeposerPermis">Permis d'exercer :</label>
+            <button id="btnDeposerPermis" name="btnDeposerPermis">Déposer un fichier</button> -->
 
             <button type="submit" class="btn btn-success" id="btnAjouterMedecin">Ajouter</button>
         </form>
