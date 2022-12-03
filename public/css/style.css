@@ -44,6 +44,7 @@ form {
 
 body{
   padding-top: 65px;
+  background-color: rgb(238, 236, 236);
 }
 
 /*--------------------------------------------------------------
@@ -84,7 +85,7 @@ body{
 }
 
 #menu-deroulant li:hover ul{
-  max-height: 15em;
+  max-height: 20em;
 }
 
 /* les a href */
@@ -115,24 +116,90 @@ body{
   color: #008000;
 }
 
-
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
 
 #footer {
-    background: #000000;
-    padding: 0 0 20px 0;
-    color: #eee;
-    font-size: 14px;
-  }
+  background: #000000;
+  padding: 0 0 20px 0;
+  color: #eee;
+  font-size: 14px;
+  margin-top: 30px;
+}
   
   
-  #footer .copyright {
-    text-align: center;
-    text-align: center;
-    padding-top: 50px;
-  }
+#footer .copyright {
+  text-align: center;
+  text-align: center;
+  padding-top: 50px;
+}
+
+/*--------------------------------------------------------------
+# accueil.ejs
+--------------------------------------------------------------*/
+
+h3 {
+  text-align: center;
+  color: white;
+  font-size: 55px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  padding-top: 285px;
+}
+
+.p-legend {
+  text-align: center;
+  color: #c8c7c7;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.dark-photo{
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/images/pharmacie.png');
+  height: 770px;
+  background-size: cover;
+  background-blend-mode: darken;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* box-shadow: 0 0 200px rgba(0,0,0,0.8) inset; */
+  
+}
+
+.service-title {
+  text-align: center;
+  padding-bottom: 25px;
+  padding-top: 60px;
+}
+
+.item-service {
+  background-color: rgb(255, 255, 255);
+  border-radius: 15px;
+  padding: 10px;
+  margin: 10px;
+  max-width: 237px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  transition: transform .2s; /* Animation */
+}
+
+.item-service:hover {
+  transform: scale(1.08);
+
+}
+
+.img-service {
+  max-height: 175px;
+  padding-bottom: 15px;
+  padding-top: 10px;
+}
+
+.legend-service {
+  font-size: 18px;
+}
+
+/*--------------------------------------------------------------
+# 
+--------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
 # Responsive
@@ -142,18 +209,4 @@ body{
 /*----- TABLETTE AND MOBILE ---*/
 @media screen and (max-width: 991px) {
  
-}
-
-
-h3 {
-  text-align: center;
-  color: white;
-}
-
-#img-darken{
-  height: 100%;
-  background-size: cover;
-  background-blend-mode: darken;
-  background-position: center;
-  background-repeat: no-repeat;
 }
