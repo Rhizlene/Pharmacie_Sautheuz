@@ -5,5 +5,8 @@ const ctrlMedecin = require('../controllers/medecinController.js');
 
 routeur.get('/', ctrlMedecin.controlMed.afficherMedecin)
 routeur.get('/formulaire', ctrlMedecin.controlMed.formulaireMedecin)
+routeur.get('/modifier/:id', ctrlMedecin.controlMed.afficherUnMedecin)
+routeur.post('/modifier/:id', ctrlMedecin.controlMed.modifierMedecin)
+routeur.post('/formulaire', ctrlMedecin.controlMed.ajouterMedecin)
 
 module.exports = routeur;

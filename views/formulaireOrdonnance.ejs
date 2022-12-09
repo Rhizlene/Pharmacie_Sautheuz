@@ -14,7 +14,7 @@
 
             Patient:
             <select name="choosePatient" id="choosePatient">
-                <% formOrdonnancePat.forEach(function(res){ %>
+                <% formOrdonnance.forEach(function(res){ %>
                     <option value="<%= res.pat_Nom %>_<%= res.pat_Prenom %>"><%= res.pat_Nom %> <%= res.pat_Prenom %></option>
                 <% }) %> 
             </select>
@@ -24,7 +24,7 @@
 
             Médecin :
             <select name="chooseMedecin" id="chooseMedecin">
-                <% formOrdonnanceMed.forEach(function(res){ %>
+                <% formOrdonnance.forEach(function(res){ %>
                     <option value="<%= res.med_Nom %> <%= res.med_Prenom %>"><%= res.med_Nom %> <%= res.med_Prenom %></option>
                 <% }) %> 
             </select>
@@ -37,7 +37,7 @@
 
             Pathologie:
             <select name="choosePathologie" id="choosePathologie">
-                <% formOrdonnancePath.forEach(function(res){ %>
+                <% formOrdonnance.forEach(function(res){ %>
                     <option value="<%= res.path_Nom %>"><%= res.path_Nom %></option>
                 <% }) %> 
             </select>
@@ -50,14 +50,14 @@
 
             Médicament:
             <select name="chooseMedicament" id="chooseMedicament">
-                <% formOrdonnanceMedic.forEach(function(res){ %>
+                <% formOrdonnance.forEach(function(res){ %>
                     <option value="<%= res.medic_Nom %>"><%= res.medic_Nom %></option>
                 <% }) %> 
             </select>
 
             Type de médicament:
             <select name="chooseMedicType" id="chooseMedicType">
-                <% formOrdonnanceMedic.forEach(function(res){ %>
+                <% formOrdonnance.forEach(function(res){ %>
                     <option value="<%= res.medic_Type %>"><%= res.medic_Type %></option>
                 <% }) %> 
             </select>

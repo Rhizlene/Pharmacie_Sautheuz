@@ -4,5 +4,6 @@ const routeur = express.Router();
 const ctrlOrdonnance = require('../controllers/ordonnanceController.js');
 
 routeur.get('/', ctrlOrdonnance.controlOrdo.afficherOrdonnance)
+routeur.get('/formulaire', ctrlOrdonnance.controlOrdo.formulaireOrdonnance)
 
 module.exports = routeur;

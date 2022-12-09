@@ -17,6 +17,23 @@ const controlOrdo = {
         } catch (error) {
             console.log(error)
         }
+    },
+
+    async formulaireOrdonnance(req, res) {
+
+        try {
+            
+            const data = await modelOrdo.Ordonnance.formulaireOrdonnance()
+
+            if (data) {
+                res.render('formulaireOrdonnance', {formOrdonnance : data})
+
+            }else {
+                res.render('formulaireOrdonnance', {formOrdonnance : {} })
+            } 
+        } catch (error) {
+            console.log(error)
+        }
     }
 }
 

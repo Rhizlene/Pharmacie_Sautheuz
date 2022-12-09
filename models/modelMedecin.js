@@ -3,6 +3,7 @@ const mysql = require('mysql2');
 let iniparser = require('iniparser');
 const bodyparser = require('body-parser')
 const { urlencoded } = require('body-parser')
+const json = require('../package-lock.json')
 
 // activer les dépendances pour la bdd
 let configDB = iniparser.parseSync('./DB.ini')
@@ -28,7 +29,7 @@ const Medecin = {
 
                 if (err) {
 
-                    return echec(lignes)
+                    return echec(err)
 
                 }
 
@@ -38,46 +39,22 @@ const Medecin = {
         })
     },
 
-    async formulaireMedecin() {
-
-        return new Promise ((reussi, echec) => {
-
-            mysqlconnexion.query("SELECT * FROM diplome", (err, lignes, champs) => {
-
-                if (err) {
-                    
-                    return echec(lignes)
-
-                } else {
-
-                    return reussi(lignes)
-
-                }
-
-            });
-        })
-    },
-
-    async ajouterMedecin() {
+    async ajouterMedecin(req) {
 
         let medNom = req.body.medNom
         let medPrenom = req.body.medPrenom
-        let medDiplome = req.body.chooseDip
+        let medDiplome = req.body.medDiplome
         let medNum = req.body.medNum
 
-        mysqlconnexion.query("SELECT dip_Id FROM Diplome WHERE dip_Nom='" + medDiplome + "';", (err, lignes, champs) => {
-            if (!err) {
-                /* stocker le resultat de la requete */
-            }
-        });
+        let requete = "INSERT INTO medecin (med_Nom, med_Prenom, med_DipId, med_Num) VALUES ( ?, ? , ? , ?)"
 
         return new Promise((reussi, echec) => {
 
-            mysqlconnexion.query("INSERT INTO medecin (med_Nom, med_Prenom, med_DipId, med_Num) VALUES ('" + medNom + "', '" + medPrenom + "', " + /* resultat de la requete */ + ", '" + medNum + "')", (err, lignes, champs) => {
+            mysqlconnexion.query(requete, [medNom, medPrenom, medDiplome, medNum] ,(err, lignes, champs) => {
 
                 if (err) {
 
-                    return echec(lignes)
+                    return echec(err)
 
                 }
 
@@ -87,8 +64,60 @@ const Medecin = {
         })
     },
 
-    async modifierMedecin(){
+    async afficherLesDiplomes() {
 
+        let requete = "SELECT * FROM diplome"
+
+        return new Promise((reussi, echec) => {
+            mysqlconnexion.query(requete,(err, lignes)=> {
+
+                if (err) {
+                    return echec(err)
+                }
+
+                return reussi(lignes)
+            })
+        })
+    },
+
+    async afficherUnMedecin(req) {
+        let medId = req.params.id
+
+        let requete = "select * from medecin, diplome where med_dipId = dip_Id and med_Id = ?"
+
+        return new Promise((reussi, echec) => {
+            mysqlconnexion.query(requete, [medId] ,(err, lignes)=> {
+
+                if (err) {
+                    return echec(err)
+                }
+
+                return reussi(lignes)
+            })
+        })
+    },
+
+    async modifierMedecin(req){
+
+        let medId = req.params.id
+        let medNom = req.body.medNom
+        let medPrenom = req.body.medPrenom
+        let medDiplome = req.body.medDiplome
+        let medNum = req.body.medNum
+
+        let requete = "UPDATE medecin SET med_Nom = ?, med_Prenom = ?, med_DipId = ?, med_Num = ? WHERE med_Id = ?"
+
+        return new Promise((reussi, echec) => {
+
+            mysqlconnexion.query(requete, [medNom, medPrenom, medDiplome, medNum, medId], (err, lignes, champs) => {
+
+                if (err) {
+                    return echec(err)
+                }
+
+                return reussi(lignes)
+            })
+        })
     },
 
     async supprimerMedecin() {

@@ -11,6 +11,7 @@ const medicamentRoutes = require('./routes/routesMedicament.js');
 const pathologieRoutes = require('./routes/routesPathologie.js');
 const mutuelleRoutes = require('./routes/routesMutuelle.js');
 const ordonnanceRoutes = require('./routes/routesOrdonnance.js');
+const diplomeRoutes = require('./routes/routesDiplome.js');
 
 // activer les dépendances pour Express et EJS
 let app = express()
@@ -53,3 +54,4 @@ app.use('/mutuelle', mutuelleRoutes);
 app.use('/medicament', medicamentRoutes);
 app.use('/pathologie', pathologieRoutes);
 app.use('/ordonnance', ordonnanceRoutes);
+app.use('/diplome', diplomeRoutes);

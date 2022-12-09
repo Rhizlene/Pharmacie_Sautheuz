@@ -7,29 +7,33 @@
     <br>
     <br>
 
-    <div> 
-        <form action="/medecin/formulaire" method="POST" enctype="application/x-www-form-urlencoded">
-            <label for="medNom">Nom : </label>
-            <input type="text" id="medNom" name="medNom">
-            
-            <label for="medPrenom">Prenom :</label>
-            <input type="text" id="medPrenom" name="medPrenom">
+    <div> <% dataMedecin.forEach(function(res){ %>
 
-            <label for="medDiplome">Diplome :</label>
-            <select name="medDiplome" id="medDiplome">
-                <% formMedecin.forEach(function(res){ %>
-                    <option value="<%= res.dip_Id %>"><%= res.dip_Nom %></option>
-                <% }) %> 
-            </select>
-            
-            <label for="medNum">Numéro de téléphone mobile :</label>
-            <input type="text" id="medNum" name="medNum">
+        <form action="/medecin/modifier/<%= res.med_Id %>" method="post" enctype="application/x-www-form-urlencoded">
+            <ul>
+                <li>
+                    <label for="medNom">Nom : </label>
+                    <input type="text" name="medNom" id="medNom" value="<%= res.med_Nom %>">
 
-            <!-- <label for="btnDeposerPermis">Permis d'exercer :</label>
-            <button id="btnDeposerPermis" name="btnDeposerPermis">Déposer un fichier</button> -->
+                    <label for="medPrenom">Prénom : </label>
+                    <input type="text" name="medPrenom" id="medPrenom" value="<%= res.med_Prenom %>">
 
-            <button type="submit" class="btn btn-success" id="btnAjouterMedecin">Ajouter</button>
+                    <label for="medDiplome">Diplome : </label>
+                    <select name="medDiplome" id="medDiplome">
+                        <% dataDiplome.forEach(function(res){ %>
+                            <option value="<%= res.dip_Id %>"><%= res.dip_Nom %></option>
+                        <% }) %> 
+                    </select>
+
+                    <label for="medNum">Numéro : </label>
+                    <input type="text" name="medNum" id="medNum" value="<%= res.med_Num %>">
+
+                    <button type="submit">Valider</button>
+                </li>
+            <% }) %> 
+            </ul>
         </form>
     </div>
+    <a href="http://localhost:3000/medecin">⬅️</a>
 
 <%- include('footer') %>

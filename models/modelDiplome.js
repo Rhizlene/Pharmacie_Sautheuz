@@ -1,6 +1,8 @@
 // inclure les dépendances et middlewares
 const mysql = require('mysql2');
 let iniparser = require('iniparser');
+const bodyparser = require('body-parser')
+const { urlencoded } = require('body-parser')
 
 // activer les dépendances pour la bdd
 let configDB = iniparser.parseSync('./DB.ini')
@@ -16,13 +18,13 @@ mysqlconnexion.connect((err) => {
     else console.log('BDD connexion échouée \n Erreur: '+JSON.stringify(err))
 })
 
-const Mutuelle = {
+const Diplome = {
 
-    async afficherMutuelle() {
+    async afficherDiplome() {
 
         return new Promise((reussi, echec) => {
 
-            mysqlconnexion.query("SELECT * FROM mutuelle", (err, lignes, champs) => {
+            mysqlconnexion.query("SELECT * FROM diplome", (err, lignes, champs) => {
 
                 if (err) {
 
@@ -36,23 +38,23 @@ const Mutuelle = {
         })
     },
 
-    async ajouterMutuelle() {
+    async ajouterDiplome() {
 
     },
 
-    async modifierMutuelle() {
+    async modifierDiplome(){
 
     },
 
-    async supprimerMutuelle() {
+    async supprimerDiplome() {
 
     },
 
-    async rechercherMutuelle() {
-
+    async rechercherDiplome() {
+        
     }
 }
 
 module.exports = {
-    Mutuelle
+    Diplome
 }
