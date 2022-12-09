@@ -5,7 +5,7 @@ const ctrlPathologie = require('../controllers/pathologieController.js');
 
 routeur.get('/', ctrlPathologie.controlPath.afficherPathologie)
 routeur.get('/formulaire',function(req, res) {
-    res.render('formulaireMutuelle');
+    res.render('formulairePathologie');
 });
 
 module.exports = routeur;

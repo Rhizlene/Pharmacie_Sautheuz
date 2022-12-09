@@ -1,69 +1,94 @@
 <%- include('header_user') %>
 
-    <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis architecto voluptas ullam enim quae necessitatibus molestiae dignissimos fugiat. Odit non saepe voluptate commodi, vero fugit ut soluta dolore sunt quae nobis officiis accusantium eius dolorum optio repudiandae nesciunt. Deserunt odit, corrupti inventore praesentium, unde quos fugit, facilis eius necessitatibus commodi vitae consequatur est at illo ex optio sapiente. Reprehenderit aperiam nam velit, dolore esse ullam consequuntur laborum vel et quasi est facere deleniti quam tenetur numquam praesentium tempore laboriosam. Blanditiis dicta similique nulla, distinctio a neque natus maxime! Ea iste harum illo obcaecati nemo debitis quaerat quidem voluptates et molestias aut optio possimus similique odit, repellendus minima asperiores quam libero, in a delectus? Corrupti voluptatum et perspiciatis deleniti, dolore id! ipsum dolor sit amet consectetur adipisicing elit. Optio ducimus enim quod ullam similique tenetur laboriosam amet rerum eligendi? Earum illum fugiat dignissimos consectetur ea architecto harum doloribus eligendi aliquid?
+<div id="inputContainer" class="container w-50 p-5">
+    <div class="mb-4 text-center display-4">
+        <h1 >Ajouter une Ordonnance</h1>
     </div>
-
-    <br>
-    <br>
-
-    <div> 
-        <form action="">
-            Date : 
-            <input type="date" id="ordoDate">
-
-            Patient:
-            <select name="choosePatient" id="choosePatient">
+    <form action="/ordonnance/formulaire"></form>
+        <div class="input-group">
+            <span class="input-group-text" id="">Date</span>
+            <input type="text" class="form-control" id="ordoDate" placeholder="">
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-text" id=""> Patient</span>
+            <select  class="form-select" name="choosePatient" id="choosePatient">
                 <% formOrdonnance.forEach(function(res){ %>
                     <option value="<%= res.pat_Nom %>_<%= res.pat_Prenom %>"><%= res.pat_Nom %> <%= res.pat_Prenom %></option>
                 <% }) %> 
             </select>
-
-            Naissance du patient (ajax pour afficher direct son age en fonction du dernier select):
-            <input type="date" id="ordoPatNaissance">
-
-            Médecin :
-            <select name="chooseMedecin" id="chooseMedecin">
+        </div>
+        <br>
+        <small class="text-muted">(ajax pour afficher direct son age en fonction du dernier select)</small>
+        <div class="input-group">
+            <span class="input-group-text" id="">Naissance du patient</span>
+            <input type="text" class="form-control" id="ordoPatNaissance" placeholder="">
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-text" id="">Médecin</span>
+            <select class="form-select" name="chooseMedecin" id="chooseMedecin">
                 <% formOrdonnance.forEach(function(res){ %>
                     <option value="<%= res.med_Nom %> <%= res.med_Prenom %>"><%= res.med_Nom %> <%= res.med_Prenom %></option>
                 <% }) %> 
             </select>
-            
-            Numéro de téléphone mobile du médecin (ajax):
-            <input type="text" id="ordoMedNum">
-
-            Diplôme du médecin (ajax):
-            <input type="text" id="ordoMedDiplome">
-
-            Pathologie:
-            <select name="choosePathologie" id="choosePathologie">
+        </div>
+        <br>
+        <small class="text-muted">(ajax)</small>
+        <div class="input-group">
+            <span class="input-group-text" id="">Numéro de téléphone mobile du médecin</span>
+            <input type="text" class="form-control" id="ordoMedNum" placeholder="">
+        </div>
+        <br>
+        <small class="text-muted">(ajax)</small>
+        <div class="input-group">
+            <span class="input-group-text" id=""> Diplôme du médecin</span>
+            <input type="text" class="form-control" id="ordoMedDiplome" placeholder="">
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-text" id=""> Pathologie:</span>
+            <select class="form-select" name="choosePathologie" id="choosePathologie">
                 <% formOrdonnance.forEach(function(res){ %>
                     <option value="<%= res.path_Nom %>"><%= res.path_Nom %></option>
                 <% }) %> 
             </select>
-
-            Quantité du médicament (en boites):
-            <input type="number" id="ordoMedicQte">
-
-            Durée du traitement (en mois):
-            <input type="number" id="ordoPosDuree">
-
-            Médicament:
-            <select name="chooseMedicament" id="chooseMedicament">
+        </div>
+        <br>
+        <small class="text-muted">(en boites)</small>
+        <div class="input-group">
+            <span class="input-group-text" id=""> Quantité du médicament</span>
+            <input type="text" class="form-control"id="ordoMedicQte" placeholder="">
+        </div>
+        <br>
+        <small class="text-muted">(en mois)</small>
+        <div class="input-group">
+            <span class="input-group-text" id=""> Durée du traitement</span>
+            <input type="text" class="form-control" id="ordoPosDuree" placeholder="">
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-text" id="">Médicament</span>
+            <select class="form-select" name="chooseMedicament" id="chooseMedicament">
                 <% formOrdonnance.forEach(function(res){ %>
                     <option value="<%= res.medic_Nom %>"><%= res.medic_Nom %></option>
                 <% }) %> 
             </select>
-
-            Type de médicament:
-            <select name="chooseMedicType" id="chooseMedicType">
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-text" id="">Type de médicament</span>
+            <select class="form-select" name="chooseMedicType" id="chooseMedicType">
                 <% formOrdonnance.forEach(function(res){ %>
                     <option value="<%= res.medic_Type %>"><%= res.medic_Type %></option>
                 <% }) %> 
             </select>
-
-            <button type="submit" class="btn btn-success" id="btnAjouterOrdonnance">Ajouter</button>
-        </form>
-    </div>
+        </div>
+        <br>
+        <div class="col-md-12 text-center">
+            <button type="submit" class="btn btn-success btn-block" id="btnAjouterOrdonnance">Ajouter</button>
+        </div>
+    </form>
+</div>
 
 <%- include('footer') %>

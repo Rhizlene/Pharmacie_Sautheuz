@@ -1,38 +1,49 @@
 <%- include('header_user') %>
 
-    <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis architecto voluptas ullam enim quae necessitatibus molestiae dignissimos fugiat. Odit non saepe voluptate commodi, vero fugit ut soluta dolore sunt quae nobis officiis accusantium eius dolorum optio repudiandae nesciunt. Deserunt odit, corrupti inventore praesentium, unde quos fugit, facilis eius necessitatibus commodi vitae consequatur est at illo ex optio sapiente. Reprehenderit aperiam nam velit, dolore esse ullam consequuntur laborum vel et quasi est facere deleniti quam tenetur numquam praesentium tempore laboriosam. Blanditiis dicta similique nulla, distinctio a neque natus maxime! Ea iste harum illo obcaecati nemo debitis quaerat quidem voluptates et molestias aut optio possimus similique odit, repellendus minima asperiores quam libero, in a delectus? Corrupti voluptatum et perspiciatis deleniti, dolore id! ipsum dolor sit amet consectetur adipisicing elit. Optio ducimus enim quod ullam similique tenetur laboriosam amet rerum eligendi? Earum illum fugiat dignissimos consectetur ea architecto harum doloribus eligendi aliquid?
+<div id="inputContainer" class="container w-50 p-5">
+    <div class="mb-4 text-center display-4">
+        <h1 >Ajouter un Patient</h1>
     </div>
-
-    <br>
-    <br>
-
-    <div> 
-        <form action="">
-            Nom : 
-            <input type="text" id="patNom">
-
-            Prenom :
-            <input type="text" id="patPrenom">
-
-            Naissance :
-            <input type="date" id="patNaissance">
-
-            Numéro de sécurité sociale :
-            <input type="text" id="patNumSecu">
-
-            Numéro de mutuelle (AMC) :
-            <input type="text" id="patNumMut">
-
-            Mutuelle :
-            <select name="chooseMut" id="chooseMut">
+    <form action="/patient/formulaire"></form>
+        <div class="input-group">
+            <span class="input-group-text" id="">Nom</span>
+            <input type="text" class="form-control" id="patNom" placeholder="">
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-text" id="">Prenom</span>
+            <input type="text" class="form-control" id="patPrenom" placeholder="">
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-text" id="">Naissance</span>
+            <input type="text" class="form-control" id="patNaissance" placeholder="">
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-text" id="">Numéro sécurité sociale</span>
+            <input type="text" class="form-control" id="patNumSecu" placeholder="">
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-text" id="">Numéro de mutuelle (AMC) </span>
+            <input type="text" class="form-control" id="patNumMut" placeholder="">
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-text" id="">Mutuelle</span>
+            <select class="form-select" name="chooseMut" id="chooseMut">
                 <% formPatient.forEach(function(res){ %>
                     <option value="<%= res.mut_Nom %>"><%= res.mut_Nom %></option>
-                <% }) %> 
+                <% }) %>  
             </select>
+        </div>
+        <br>
 
-            <button type="submit" class="btn btn-success" id="btnAjouterPatient">Ajouter</button>
-        </form>
-    </div>
+        <div class="col-md-12 text-center">
+            <button type="submit" class="btn btn-success btn-block" id="btnAjouterPatient">Ajouter</button>
+        </div>
+    </form>
+</div>
 
 <%- include('footer') %>
