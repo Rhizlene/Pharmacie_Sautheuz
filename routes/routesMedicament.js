@@ -4,8 +4,9 @@ const routeur = express.Router();
 const ctrlMedicament = require('../controllers/medicamentController.js');
 
 routeur.get('/', ctrlMedicament.controlMedic.afficherMedicament)
-routeur.get('/formulaire',function(req, res) {
-    res.render('formulaireMedicament');
-});
+routeur.get('/formulaire', ctrlMedicament.controlMedic.formulaireMedicament)
+routeur.post('/formulaire', ctrlMedicament.controlMedic.ajouterMedicament)
+routeur.get('/modifier/:id', ctrlMedicament.controlMedic.afficherUnMedicament)
+routeur.post('/modifier/:id', ctrlMedicament.controlMedic.modifierMedicament)
 
 module.exports = routeur;

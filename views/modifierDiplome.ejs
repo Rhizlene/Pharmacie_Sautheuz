@@ -7,14 +7,20 @@
     <br>
     <br>
 
-    <div> 
-        <strong>Pathologies :</strong>
-        <ul> <% dataPathologie.forEach(function(res){ %>
-            <li>
-                <%= res.path_Nom %> <a href="http://localhost:3000/pathologie/modifier/<%= res.path_Id %> ">modifier</a> <a href="http://localhost:3000/pathologie/supprimer">supprimer</a>
-            </li>
-        <% }) %> 
-        </ul>
+    <div> <% dataDiplome.forEach(function(res){ %>
+
+        <form action="/diplome/modifier/<%= res.dip_Id %>" method="post" enctype="application/x-www-form-urlencoded">
+            <ul>
+                <li>
+                    <label for="dipNom">Nom : </label>
+                    <input type="text" name="dipNom" id="dipNom" value="<%= res.dip_Nom %>">
+
+                    <button type="submit">Valider</button>
+                </li>
+            <% }) %> 
+            </ul>
+        </form>
     </div>
+    <a href="http://localhost:3000/diplome">⬅️</a>
 
 <%- include('footer') %>

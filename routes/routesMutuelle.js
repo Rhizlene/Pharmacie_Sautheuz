@@ -4,8 +4,9 @@ const routeur = express.Router();
 const ctrlMutuelle = require('../controllers/mutuelleController.js');
 
 routeur.get('/', ctrlMutuelle.controlMut.afficherMutuelle)
-routeur.get('/formulaire',function(req, res) {
-    res.render('formulaireMutuelle');
-});
+routeur.get('/formulaire', ctrlMutuelle.controlMut.formulaireMutuelle)
+routeur.post('/formulaire', ctrlMutuelle.controlMut.ajouterMutuelle)
+routeur.get('/modifier/:id', ctrlMutuelle.controlMut.afficherUneMutuelle)
+routeur.post('/modifier/:id', ctrlMutuelle.controlMut.modifierMutuelle)
 
 module.exports = routeur;

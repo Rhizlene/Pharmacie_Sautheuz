@@ -3,7 +3,6 @@ const mysql = require('mysql2');
 let iniparser = require('iniparser');
 const bodyparser = require('body-parser')
 const { urlencoded } = require('body-parser')
-const json = require('../package-lock.json')
 
 // activer les dépendances pour la bdd
 let configDB = iniparser.parseSync('./DB.ini')
@@ -60,22 +59,6 @@ const Medecin = {
 
                 return reussi(lignes)
 
-            })
-        })
-    },
-
-    async afficherLesDiplomes() {
-
-        let requete = "SELECT * FROM diplome"
-
-        return new Promise((reussi, echec) => {
-            mysqlconnexion.query(requete,(err, lignes)=> {
-
-                if (err) {
-                    return echec(err)
-                }
-
-                return reussi(lignes)
             })
         })
     },

@@ -1,0 +1,45 @@
+<%- include('header_user') %>
+
+    <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis architecto voluptas ullam enim quae necessitatibus molestiae dignissimos fugiat. Odit non saepe voluptate commodi, vero fugit ut soluta dolore sunt quae nobis officiis accusantium eius dolorum optio repudiandae nesciunt. Deserunt odit, corrupti inventore praesentium, unde quos fugit, facilis eius necessitatibus commodi vitae consequatur est at illo ex optio sapiente. Reprehenderit aperiam nam velit, dolore esse ullam consequuntur laborum vel et quasi est facere deleniti quam tenetur numquam praesentium tempore laboriosam. Blanditiis dicta similique nulla, distinctio a neque natus maxime! Ea iste harum illo obcaecati nemo debitis quaerat quidem voluptates et molestias aut optio possimus similique odit, repellendus minima asperiores quam libero, in a delectus? Corrupti voluptatum et perspiciatis deleniti, dolore id! ipsum dolor sit amet consectetur adipisicing elit. Optio ducimus enim quod ullam similique tenetur laboriosam amet rerum eligendi? Earum illum fugiat dignissimos consectetur ea architecto harum doloribus eligendi aliquid?
+    </div>
+
+    <br>
+    <br>
+
+    <div> <% dataPatient.forEach(function(res){ %>
+
+        <form action="/patient/modifier/<%= res.pat_Id %>" method="post" enctype="application/x-www-form-urlencoded">
+            <ul>
+                <li>
+                    <label for="patNom">Nom : </label>
+                    <input type="text" name="patNom" id="patNom" value="<%= res.pat_Nom %>">
+
+                    <label for="patPrenom">Prénom : </label>
+                    <input type="text" name="patPrenom" id="patPrenom" value="<%= res.pat_Prenom %>">
+
+                    <label for="patNaissance">Naissance :</label> 
+                    <input type="date" id="patNaissance" name="patNaissance" value="<%= res.pat_Naissance %>">
+
+                    <label for="patNumSecu">Numéro de sécurité sociale :</label> 
+                    <input type="text" id="patNumSecu" name="patNumSecu" value="<%= res.pat_NumSecu %>">
+
+                    <label for="patNumMut">Numéro de mutuelle (AMC) :</label> 
+                    <input type="text" id="patNumMut" name="patNumMut" value="<%= res.pat_NumMut %>">
+
+                    <label for="patMutuelle">Mutuelle :</label> 
+                    <select name="patMutuelle" id="patMutuelle">
+                        <% dataMutuelle.forEach(function(res){ %>
+                            <option value="<%= res.mut_Id %>"><%= res.mut_Nom %></option>
+                        <% }) %> 
+                    </select>
+
+                    <button type="submit">Valider</button>
+                </li>
+            <% }) %> 
+            </ul>
+        </form>
+    </div>
+    <a href="http://localhost:3000/patient">⬅️</a>
+
+<%- include('footer') %>

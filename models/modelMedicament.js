@@ -36,16 +36,68 @@ const Medicament = {
         })
     },
 
-    async formulaireMedicament() {
+    async ajouterMedicament(req) {
 
+        let medicNom = req.body.medicNom
+        let medicType = req.body.medicType
+        let medicQteStock = req.body.medicQteStock
+
+        let requete = "INSERT INTO medicament (medic_Nom, medic_Type, medic_QteStock) VALUES ( ?, ?, ?)"
+
+        return new Promise((reussi, echec) => {
+
+            mysqlconnexion.query(requete, [medicNom, medicType, medicQteStock] ,(err, lignes, champs) => {
+
+                if (err) {
+
+                    return echec(err)
+
+                }
+
+                return reussi(lignes)
+
+            })
+        })
     },
 
-    async ajouterMedicament() {
+    async afficherUnMedicament(req) {
 
+        let medicId = req.params.id
+
+        let requete = "select * from medicament where medic_Id = ?"
+
+        return new Promise((reussi, echec) => {
+            mysqlconnexion.query(requete, [medicId] ,(err, lignes)=> {
+
+                if (err) {
+                    return echec(err)
+                }
+
+                return reussi(lignes)
+            })
+        })
     },
 
-    async modifierMedicament() {
+    async modifierMedicament(req) {
 
+        let medicId = req.params.id
+        let medicNom = req.body.medicNom
+        let medicType = req.body.medicType
+        let medicQteStock = req.body.medicQteStock
+
+        let requete = "UPDATE medicament SET medic_Nom = ?, medic_type = ?, medic_QteStock = ? WHERE medic_Id = ?"
+
+        return new Promise((reussi, echec) => {
+
+            mysqlconnexion.query(requete, [medicNom, medicType, medicQteStock, medicId], (err, lignes, champs) => {
+
+                if (err) {
+                    return echec(err)
+                }
+
+                return reussi(lignes)
+            })
+        })
     },
 
     async supprimerMedicament() {

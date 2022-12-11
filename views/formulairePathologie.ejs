@@ -8,9 +8,10 @@
     <br>
 
     <div> 
-        <form action="">
-            Nom : 
-            <input type="text" id="pathNom">
+        <form action="/pathologie/formulaire" method="post" enctype="application/x-www-form-urlencoded">
+            
+            <label for="pathNom">Nom :</label>
+            <input type="text" id="pathNom" name="pathNom">
             
             <button type="submit" class="btn btn-success" id="btnAjouterPathologie">Ajouter</button>
         </form>

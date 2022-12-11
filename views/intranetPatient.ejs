@@ -10,7 +10,7 @@
     <div> 
         <ul> <% dataPatient.forEach(function(res){ %>
             <li>
-                <strong>Monsieur</strong> <%= res.pat_Nom %> <%= res.pat_Prenom %>, <strong>né le</strong> <%= res.pat_Naissance %> - <strong>Numéro de sécurité sociale :</strong> <%= res.pat_NumSecu %> -  <strong>Mutuelle :</strong> <%= res.mut_Nom %> <strong>Avec le numéro : </strong> <%= res.pat_NumMut %>  
+                <strong>Monsieur</strong> <%= res.pat_Nom %> <%= res.pat_Prenom %>, <strong>né le</strong> <%= res.pat_Naissance %> - <strong>Numéro de sécurité sociale :</strong> <%= res.pat_NumSecu %> -  <strong>Mutuelle :</strong> <%= res.mut_Nom %> <strong>Avec le numéro : </strong> <%= res.pat_NumMut %> <a href="http://localhost:3000/patient/modifier/<%= res.pat_Id %> ">modifier</a> <a href="http://localhost:3000/patient/supprimer">supprimer</a>
             </li>
         <% }) %> 
         </ul>

@@ -38,12 +38,64 @@ const Diplome = {
         })
     },
 
-    async ajouterDiplome() {
+    async afficherUnDiplome(req) {
 
+        let dipId = req.params.id
+
+        let requete = "select * from diplome where dip_Id = ?"
+
+        return new Promise((reussi, echec) => {
+            mysqlconnexion.query(requete, [dipId] ,(err, lignes)=> {
+
+                if (err) {
+                    return echec(err)
+                }
+
+                return reussi(lignes)
+            })
+        })
     },
 
-    async modifierDiplome(){
+    async ajouterDiplome(req) {
 
+        let dipNom = req.body.dipNom
+
+        let requete = "INSERT INTO diplome (dip_Nom) VALUES (?)"
+
+        return new Promise((reussi, echec) => {
+
+            mysqlconnexion.query(requete, [dipNom] ,(err, lignes, champs) => {
+
+                if (err) {
+
+                    return echec(err)
+
+                }
+
+                return reussi(lignes)
+
+            })
+        })
+    },
+
+    async modifierDiplome(req){
+
+        let dipId = req.params.id
+        let dipNom = req.body.dipNom
+
+        let requete = "UPDATE diplome SET dip_Nom = ? WHERE dip_Id = ?"
+
+        return new Promise((reussi, echec) => {
+
+            mysqlconnexion.query(requete, [dipNom, dipId], (err, lignes, champs) => {
+
+                if (err) {
+                    return echec(err)
+                }
+
+                return reussi(lignes)
+            })
+        })
     },
 
     async supprimerDiplome() {

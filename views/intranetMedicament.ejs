@@ -11,7 +11,7 @@
         <strong>Médicaments :</strong> 
         <ul> <% dataMedicament.forEach(function(res){ %>
             <li>
-                <%= res.medic_Nom %> (<%= res.medic_Type %>) - <%= res.medic_QteStock %> boites en stock  
+                <%= res.medic_Nom %> (<%= res.medic_Type %>) - <%= res.medic_QteStock %> boites en stock  <a href="http://localhost:3000/medicament/modifier/<%= res.medic_Id %> ">modifier</a> <a href="http://localhost:3000/medicament/supprimer">supprimer</a>
             </li>
         <% }) %> 
         </ul>

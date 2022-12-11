@@ -36,12 +36,66 @@ const Mutuelle = {
         })
     },
 
-    async ajouterMutuelle() {
+    async afficherUneMutuelle(req) {
 
+        let mutId = req.params.id
+
+        let requete = "select * from mutuelle where mut_Id = ?"
+
+        return new Promise((reussi, echec) => {
+            mysqlconnexion.query(requete, [mutId] ,(err, lignes)=> {
+
+                if (err) {
+                    return echec(err)
+                }
+
+                return reussi(lignes)
+            })
+        })
     },
 
-    async modifierMutuelle() {
+    async ajouterMutuelle(req) {
 
+        let mutNom = req.body.mutNom
+        let mutTaux = req.body.mutTaux
+
+        let requete = "INSERT INTO mutuelle (mut_Nom, mut_Taux) VALUES (?, ?)"
+
+        return new Promise((reussi, echec) => {
+
+            mysqlconnexion.query(requete, [mutNom, mutTaux] ,(err, lignes, champs) => {
+
+                if (err) {
+
+                    return echec(err)
+
+                }
+
+                return reussi(lignes)
+
+            })
+        })
+    },
+
+    async modifierMutuelle(req) {
+
+        let mutId = req.params.id
+        let mutNom = req.body.mutNom
+        let mutTaux = req.body.mutTaux
+
+        let requete = "UPDATE mutuelle SET mut_Nom = ?, mut_Taux = ? WHERE mut_Id = ?"
+
+        return new Promise((reussi, echec) => {
+
+            mysqlconnexion.query(requete, [mutNom, mutTaux, mutId], (err, lignes, champs) => {
+
+                if (err) {
+                    return echec(err)
+                }
+
+                return reussi(lignes)
+            })
+        })
     },
 
     async supprimerMutuelle() {

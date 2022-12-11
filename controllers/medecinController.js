@@ -1,4 +1,5 @@
 const modelMed = require('../models/modelMedecin');
+const modelDip = require('../models/modelDiplome');
 
 const controlMed = {
 
@@ -41,7 +42,7 @@ const controlMed = {
         try {
             
             const dataMed = await modelMed.Medecin.afficherUnMedecin(req)
-            const dataDip = await modelMed.Medecin.afficherLesDiplomes()
+            const dataDip = await modelDip.Diplome.afficherDiplome()
 
             if (dataMed && dataDip) {
                 res.render("modifierMedecin", {dataMedecin : dataMed, dataDiplome : dataDip})

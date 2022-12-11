@@ -8,26 +8,26 @@
     <br>
 
     <div> 
-        <form action="">
-            Nom : 
-            <input type="text" id="patNom">
+        <form action="/patient/formulaire" method="post" enctype="application/x-www-form-urlencoded">
+            <label for="patNom">Nom :</label> 
+            <input type="text" id="patNom" name="patNom">
 
-            Prenom :
-            <input type="text" id="patPrenom">
+            <label for="patPrenom">Prenom :</label> 
+            <input type="text" id="patPrenom" name="patPrenom">
 
-            Naissance :
-            <input type="date" id="patNaissance">
+            <label for="patNaissance">Naissance :</label> 
+            <input type="date" id="patNaissance" name="patNaissance">
 
-            Numéro de sécurité sociale :
-            <input type="text" id="patNumSecu">
+            <label for="patNumSecu">Numéro de sécurité sociale :</label> 
+            <input type="text" id="patNumSecu" name="patNumSecu">
 
-            Numéro de mutuelle (AMC) :
-            <input type="text" id="patNumMut">
+            <label for="patNumMut">Numéro de mutuelle (AMC) :</label> 
+            <input type="text" id="patNumMut" name="patNumMut">
 
-            Mutuelle :
-            <select name="chooseMut" id="chooseMut">
+            <label for="patMutuelle">Mutuelle :</label> 
+            <select name="patMutuelle" id="patMutuelle">
                 <% formPatient.forEach(function(res){ %>
-                    <option value="<%= res.mut_Nom %>"><%= res.mut_Nom %></option>
+                    <option value="<%= res.mut_Id %>"><%= res.mut_Nom %></option>
                 <% }) %> 
             </select>
 

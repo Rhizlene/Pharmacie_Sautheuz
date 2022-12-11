@@ -56,12 +56,89 @@ const Patient = {
         })
     },
 
-    async ajouterPatient() {
+    async ajouterPatient(req) {
 
+        let patNom = req.body.patNom
+        let patPrenom = req.body.patPrenom
+        let patNaissance = req.body.patNaissance
+        let patNumSecu = req.body.patNumSecu
+        let patNumMut = req.body.patNumMut
+        let patMutuelle = req.body.patMutuelle
+
+        let requete = "INSERT INTO patient (pat_Nom, pat_Prenom, pat_Naissance, pat_NumSecu, pat_NumMut, pat_MutId) VALUES ( ?, ?, ?, ?, ?, ?)"
+
+        return new Promise((reussi, echec) => {
+
+            mysqlconnexion.query(requete, [patNom, patPrenom, patNaissance, patNumSecu, patNumMut, patMutuelle] ,(err, lignes, champs) => {
+
+                if (err) {
+
+                    return echec(err)
+
+                }
+
+                return reussi(lignes)
+
+            })
+        })
     },
 
-    async modifierPatient() {
+    async modifierPatient(req) {
 
+        let patId = req.params.id
+        let patNom = req.body.patNom
+        let patPrenom = req.body.patPrenom
+        let patNaissance = req.body.patNaissance
+        let patNumSecu = req.body.patNumSecu
+        let patNumMut = req.body.patNumMut
+        let patMutuelle = req.body.patMutuelle
+
+        let requete = "UPDATE patient SET pat_Nom = ?, pat_Prenom = ?, pat_Naissance = ?, pat_NumSecu = ?, pat_NumMut = ?, pat_MutId = ? WHERE med_Id = ?"
+
+        return new Promise((reussi, echec) => {
+
+            mysqlconnexion.query(requete, [patNom, patPrenom, patNaissance, patNumSecu, patNumMut, patMutuelle, patId], (err, lignes, champs) => {
+
+                if (err) {
+                    return echec(err)
+                }
+
+                return reussi(lignes)
+            })
+        })
+    },
+
+    async afficherLesMutuelles() {
+
+        let requete = "SELECT * FROM mutuelle"
+
+        return new Promise((reussi, echec) => {
+            mysqlconnexion.query(requete,(err, lignes)=> {
+
+                if (err) {
+                    return echec(err)
+                }
+
+                return reussi(lignes)
+            })
+        })
+    },
+
+    async afficherUnPatient(req) {
+        let patId = req.params.id
+
+        let requete = "select * from patient where pat_Id = ?"
+
+        return new Promise((reussi, echec) => {
+            mysqlconnexion.query(requete, [patId] ,(err, lignes)=> {
+
+                if (err) {
+                    return echec(err)
+                }
+
+                return reussi(lignes)
+            })
+        })
     },
 
     async supprimerPatient() {

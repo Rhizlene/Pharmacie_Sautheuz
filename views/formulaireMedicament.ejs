@@ -8,15 +8,16 @@
     <br>
 
     <div> 
-        <form action="">
-            Nom : 
-            <input type="text" id="medicNom">
+        <form action="/medicament/formulaire" method="post" enctype="application/x-www-form-urlencoded">
+            
+            <label for="medicNom">Nom :</label> 
+            <input type="text" id="medicNom" name="medicNom">
+            
+            <label for="medicQteStock">Quantité en stock (nombre de boites) :</label> 
+            <input type="number" id="medicQteStock" name="medicQteStock">
 
-            Quantité en stock (nombre de boites) :
-            <input type="number" id="medicQteStock">
-
-            Type (comprimé, pastille, pilule ...) :
-            <input type="text" id="medicType">
+            <label for="medicType">Type (comprimé, pastille, pilule ...) :</label> 
+            <input type="text" id="medicType" name="medicType">
 
             <button type="submit" class="btn btn-success" id="btnAjouterMedicament">Ajouter</button>
     </div>

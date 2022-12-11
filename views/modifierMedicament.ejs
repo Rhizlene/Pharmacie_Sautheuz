@@ -7,14 +7,26 @@
     <br>
     <br>
 
-    <div> 
-        <strong>Pathologies :</strong>
-        <ul> <% dataPathologie.forEach(function(res){ %>
-            <li>
-                <%= res.path_Nom %> <a href="http://localhost:3000/pathologie/modifier/<%= res.path_Id %> ">modifier</a> <a href="http://localhost:3000/pathologie/supprimer">supprimer</a>
-            </li>
-        <% }) %> 
-        </ul>
+    <div> <% dataMedicament.forEach(function(res){ %>
+
+        <form action="/medicament/modifier/<%= res.medic_Id %>" method="post" enctype="application/x-www-form-urlencoded">
+            <ul>
+                <li>
+                    <label for="medicNom">Nom : </label>
+                    <input type="text" name="medicNom" id="medicNom" value="<%= res.medic_Nom %>">
+
+                    <label for="medicType">Type (comprimé, pastille, pilule ...) :</label>
+                    <input type="text" name="medicType" id="medicType" value="<%= res.medic_Type %>">
+
+                    <label for="medicQteStock">Quantité en stock (nombre de boites) :</label> 
+                    <input type="number" id="medicQteStock" name="medicQteStock" value="<%= res.medic_QteStock %>">
+
+                    <button type="submit">Valider</button>
+                </li>
+            <% }) %> 
+            </ul>
+        </form>
     </div>
+    <a href="http://localhost:3000/medicament">⬅️</a>
 
 <%- include('footer') %>

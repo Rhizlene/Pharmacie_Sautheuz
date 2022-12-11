@@ -11,7 +11,7 @@
         <strong>Mutuelles :</strong>
         <ul> <% dataMutuelle.forEach(function(res){ %>
             <li>
-                <%= res.mut_Nom %> <strong>Taux de remboursement de</strong> <%= res.mut_Taux %>%
+                <%= res.mut_Nom %> <strong>Taux de remboursement de</strong> <%= res.mut_Taux %>%  <a href="http://localhost:3000/mutuelle/modifier/<%= res.mut_Id %> ">modifier</a> <a href="http://localhost:3000/mutuelle/supprimer">supprimer</a>
             </li>
         <% }) %> 
         </ul>

@@ -36,16 +36,64 @@ const Pathologie = {
         })
     },
 
-    async formulairePathologie() {
+    async afficherUnePathologie(req) {
 
+        let pathId = req.params.id
+
+        let requete = "select * from pathologie where path_Id = ?"
+
+        return new Promise((reussi, echec) => {
+            mysqlconnexion.query(requete, [pathId] ,(err, lignes)=> {
+
+                if (err) {
+                    return echec(err)
+                }
+
+                return reussi(lignes)
+            })
+        })
     },
 
-    async ajouterPathologie() {
+    async ajouterPathologie(req) {
 
+        let pathNom = req.body.pathNom
+
+        let requete = "INSERT INTO pathologie (path_Nom) VALUES (?)"
+
+        return new Promise((reussi, echec) => {
+
+            mysqlconnexion.query(requete, [pathNom] ,(err, lignes, champs) => {
+
+                if (err) {
+
+                    return echec(err)
+
+                }
+
+                return reussi(lignes)
+
+            })
+        })
     },
 
-    async modifierPathologie() {
+    async modifierPathologie(req) {
 
+        let pathId = req.params.id
+        let pathNom = req.body.pathNom
+
+        let requete = "UPDATE pathologie SET path_Nom = ? WHERE path_Id = ?"
+
+        return new Promise((reussi, echec) => {
+
+            mysqlconnexion.query(requete, [pathNom, pathId], (err, lignes, champs) => {
+
+                if (err) {
+                    return echec(err)
+                }
+
+                return reussi(lignes)
+            })
+        })
     },
 
     async supprimerPathologie() {

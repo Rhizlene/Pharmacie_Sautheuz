@@ -34,7 +34,64 @@ const controlPat = {
         } catch (error) {
             console.log(error)
         }
+    },
+
+    async ajouterPatient(req, res) {
+
+        try {
+            
+            const data = await modelPat.Patient.ajouterPatient(req)
+
+            if (data) {
+                res.redirect("/patient")
+
+            }else {
+                console.log("probleme")
+                res.render("formulairePatient")
+            } 
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    async afficherUnPatient(req, res) {
+
+        try {
+            
+            const dataPat = await modelPat.Patient.afficherUnPatient(req)
+            const dataMut = await modelPat.Patient.afficherLesMutuelles()
+
+            if (dataPat && dataMut) {
+                res.render("modifierPatient", {dataPatient : dataPat, dataMutuelle : dataMut})
+
+            }else {
+                res.render("modifierPatient", {dataPatient : {}, dataMutuelle : {}})
+            } 
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    async modifierpatient(req, res) {
+
+        try {
+            
+            const data = await modelPat.Patient.modifierPatient(req)
+
+            if (data) {
+                res.redirect("/patient")
+
+            }else {
+                console.log("probleme")
+                res.redirect("patient/modifier/" + req.params.patId)
+            } 
+        } catch (error) {
+            console.log(error)
+        }
     }
+
+
+
 }
 
 

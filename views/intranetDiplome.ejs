@@ -11,7 +11,7 @@
         <strong>Diplomes :</strong>
         <ul> <% dataDiplome.forEach(function(res){ %>
             <li>
-                <%= res.dip_Nom %>
+                <%= res.dip_Nom %> <a href="http://localhost:3000/diplome/modifier/<%= res.dip_Id %> ">modifier</a> <a href="http://localhost:3000/diplome/supprimer">supprimer</a>
             </li>
         <% }) %> 
         </ul>
