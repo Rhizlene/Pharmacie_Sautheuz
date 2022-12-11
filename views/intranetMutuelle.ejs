@@ -5,7 +5,6 @@
         <h1 >Liste des Mutuelles</h1>
     </div>
 
-<<<<<<< HEAD
     <br>
     <br>
 
@@ -14,15 +13,6 @@
         <ul> <% dataMutuelle.forEach(function(res){ %>
             <li>
                 <%= res.mut_Nom %> <strong>Taux de remboursement de</strong> <%= res.mut_Taux %>%  <a href="http://localhost:3000/mutuelle/modifier/<%= res.mut_Id %> ">modifier</a> <a href="http://localhost:3000/mutuelle/supprimer">supprimer</a>
-=======
-    <div class="container w-50 mt-5 bg-light p-3 li-container"> 
-        <ul class="list-group"> <% dataMutuelle.forEach(function(res){ %>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                <!-- <div><input type="text" value="<%= res.med_Id %>" disabled hidden></div> -->
-                <div><strong><%= res.mut_Id %></strong></div>
-                <div><%= res.mut_Nom %></div>
-                <div>Taux de remboursement de <strong><%= res.mut_Taux %>%</strong></div>
->>>>>>> e785808c813231745303d5264a45fbbde25e1988
             </li>
         <% }) %> 
         </ul>

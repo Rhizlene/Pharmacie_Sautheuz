@@ -24,7 +24,7 @@ const controlMed = {
 
         try {
             
-            const data = await modelMed.Medecin.afficherLesDiplomes()
+            const data = await modelDip.Diplome.afficherDiplome()
 
             if (data) {
                 res.render('formulaireMedecin', {formMedecin : data})

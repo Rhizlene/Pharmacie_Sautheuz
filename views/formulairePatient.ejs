@@ -4,7 +4,6 @@
     <div class="mb-4 text-center display-4">
         <h1 >Ajouter un Patient</h1>
     </div>
-<<<<<<< HEAD
 
     <br>
     <br>
@@ -31,40 +30,6 @@
                 <% formPatient.forEach(function(res){ %>
                     <option value="<%= res.mut_Id %>"><%= res.mut_Nom %></option>
                 <% }) %> 
-=======
-    <form action="/patient/formulaire"></form>
-        <div class="input-group">
-            <span class="input-group-text" id="">Nom</span>
-            <input type="text" class="form-control" id="patNom" placeholder="">
-        </div>
-        <br>
-        <div class="input-group">
-            <span class="input-group-text" id="">Prenom</span>
-            <input type="text" class="form-control" id="patPrenom" placeholder="">
-        </div>
-        <br>
-        <div class="input-group">
-            <span class="input-group-text" id="">Naissance</span>
-            <input type="text" class="form-control" id="patNaissance" placeholder="">
-        </div>
-        <br>
-        <div class="input-group">
-            <span class="input-group-text" id="">Numéro sécurité sociale</span>
-            <input type="text" class="form-control" id="patNumSecu" placeholder="">
-        </div>
-        <br>
-        <div class="input-group">
-            <span class="input-group-text" id="">Numéro de mutuelle (AMC) </span>
-            <input type="text" class="form-control" id="patNumMut" placeholder="">
-        </div>
-        <br>
-        <div class="input-group">
-            <span class="input-group-text" id="">Mutuelle</span>
-            <select class="form-select" name="chooseMut" id="chooseMut">
-                <% formPatient.forEach(function(res){ %>
-                    <option value="<%= res.mut_Nom %>"><%= res.mut_Nom %></option>
-                <% }) %>  
->>>>>>> e785808c813231745303d5264a45fbbde25e1988
             </select>
         </div>
         <br>

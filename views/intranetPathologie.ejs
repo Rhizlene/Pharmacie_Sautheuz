@@ -4,7 +4,6 @@
         <h1 >Liste des Pathologies</h1>
     </div>
 
-<<<<<<< HEAD
     <br>
     <br>
 
@@ -13,15 +12,6 @@
         <ul> <% dataPathologie.forEach(function(res){ %>
             <li>
                 <%= res.path_Nom %> <a href="http://localhost:3000/pathologie/modifier/<%= res.path_Id %> ">modifier</a> <a href="http://localhost:3000/pathologie/supprimer">supprimer</a>
-=======
-    <div class="container w-50 mt-5 bg-light p-2 li-container"> 
-        <ul class="list-group"> <% dataPathologie.forEach(function(res){ %>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                <!-- <div><input type="text" value="<%= res.med_Id %>" disabled hidden></div> -->
-                <div><strong><%= res.path_Id %></strong></div>
-                <div><%= res.path_Nom %> </div>
-                <div></div>
->>>>>>> e785808c813231745303d5264a45fbbde25e1988
             </li>
         <% }) %> 
         </ul>
