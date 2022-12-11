@@ -1,19 +1,35 @@
 <%- include('header_user') %>
 
-    <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis architecto voluptas ullam enim quae necessitatibus molestiae dignissimos fugiat. Odit non saepe voluptate commodi, vero fugit ut soluta dolore sunt quae nobis officiis accusantium eius dolorum optio repudiandae nesciunt. Deserunt odit, corrupti inventore praesentium, unde quos fugit, facilis eius necessitatibus commodi vitae consequatur est at illo ex optio sapiente. Reprehenderit aperiam nam velit, dolore esse ullam consequuntur laborum vel et quasi est facere deleniti quam tenetur numquam praesentium tempore laboriosam. Blanditiis dicta similique nulla, distinctio a neque natus maxime! Ea iste harum illo obcaecati nemo debitis quaerat quidem voluptates et molestias aut optio possimus similique odit, repellendus minima asperiores quam libero, in a delectus? Corrupti voluptatum et perspiciatis deleniti, dolore id! ipsum dolor sit amet consectetur adipisicing elit. Optio ducimus enim quod ullam similique tenetur laboriosam amet rerum eligendi? Earum illum fugiat dignissimos consectetur ea architecto harum doloribus eligendi aliquid?
+    <div class="mb-4 text-center display-4 mt-5">
+        <h1 >Liste des Patients</h1>
     </div>
 
-    <br>
-    <br>
-
-    <div> 
-        <ul> <% dataPatient.forEach(function(res){ %>
-            <li>
-                <strong>Monsieur</strong> <%= res.pat_Nom %> <%= res.pat_Prenom %>, <strong>né le</strong> <%= res.pat_Naissance %> - <strong>Numéro de sécurité sociale :</strong> <%= res.pat_NumSecu %> -  <strong>Mutuelle :</strong> <%= res.mut_Nom %> <strong>Avec le numéro : </strong> <%= res.pat_NumMut %>  
-            </li>
-        <% }) %> 
-        </ul>
+    <div class="container w-75 mt-5 li-container" >
+        <table id="table" class="table table-light table-striped table-responsive{-sm|-md|-lg|-xl}">
+            <thead>
+                <td class="tdhead"> #</td>
+                <td class="tdhead"> Nom</td>
+                <td class="tdhead"> Date de naissance</td>
+                <td class="tdhead"> N° sécurité sociale</td>
+                <td class="tdhead"> Mutuelle</td>
+                <td class="tdhead">  </td>
+            </thead>
+            <tbody class="" id="tableau">
+                <div class="list-group"> <% dataPatient.forEach(function(res){ %>
+                    <tr>
+                    <!-- <td class="list-group-item d-flex align-items-center"> -->
+                        <td><strong><%= res.pat_Id %></strong></td>
+                        <td><%= res.pat_Nom %> <%= res.pat_Prenom %></td>
+                        <td><%= res.pat_Naissance %></td>
+                        <td><%= res.pat_NumSecu %></td>
+                        <td><%= res.mut_Nom %> <br> <img src="/images/phone.png" class="li-icon">: <%= res.pat_NumMut %></td>
+                        <td class=" justify-content-between align-items-center"><a href="#"><img src="/images/update.png" class="li-icon"></a> <a href="http://localhost:3000/medecin/supprimer"><img src="/images/delete.png" class="li-icon"></a></td>
+                    </tr>
+                        <!-- </td> -->
+                <% }) %> 
+                    </div>
+            </tbody>
+        </table>
     </div>
 
 <%- include('footer') %>

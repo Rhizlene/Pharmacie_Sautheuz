@@ -5,6 +5,8 @@
         <h1 >Ajouter une Ordonnance</h1>
     </div>
     <form action="/ordonnance/formulaire"></form>
+        <div>Information du patient :</div>
+        <br>
         <div class="input-group">
             <span class="input-group-text" id="">Date</span>
             <input type="text" class="form-control" id="ordoDate" placeholder="">
@@ -24,6 +26,8 @@
             <span class="input-group-text" id="">Naissance du patient</span>
             <input type="text" class="form-control" id="ordoPatNaissance" placeholder="">
         </div>
+        <hr class="my-4">
+        <div>Information du médecin :</div>
         <br>
         <div class="input-group">
             <span class="input-group-text" id="">Médecin</span>
@@ -36,7 +40,7 @@
         <br>
         <small class="text-muted">(ajax)</small>
         <div class="input-group">
-            <span class="input-group-text" id="">Numéro de téléphone mobile du médecin</span>
+            <span class="input-group-text" id="">N°tél du médecin</span>
             <input type="text" class="form-control" id="ordoMedNum" placeholder="">
         </div>
         <br>
@@ -45,7 +49,7 @@
             <span class="input-group-text" id=""> Diplôme du médecin</span>
             <input type="text" class="form-control" id="ordoMedDiplome" placeholder="">
         </div>
-        <br>
+        <hr class="my-4">
         <div class="input-group">
             <span class="input-group-text" id=""> Pathologie:</span>
             <select class="form-select" name="choosePathologie" id="choosePathologie">
@@ -85,6 +89,8 @@
             </select>
         </div>
         <br>
+        
+        
         <div class="col-md-12 text-center">
             <button type="submit" class="btn btn-success btn-block" id="btnAjouterOrdonnance">Ajouter</button>
         </div>
