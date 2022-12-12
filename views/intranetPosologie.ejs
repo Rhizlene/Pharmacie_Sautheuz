@@ -10,7 +10,7 @@
                 <div><strong>Medicament </strong><%= res.medic_Nom %> - <%= res.medic_Type %></div>
                 <div><strong>Nombre de boites </strong><%= res.pos_MedicQte %></div>
                 <div><strong>Pour une durée de </strong><%= res.pos_Duree %> <strong> Mois</strong></div>
-                <div><a href="http://localhost:3000/posologie/modifier/<%= res.pos_Id %> "><img src="/images/update.png" class="li-icon"></a></div>
+                <div><a href="http://localhost:3000/posologie/modifier/<%= res.ordo_Id %>/<%= res.pos_Id %> "><img src="/images/update.png" class="li-icon"></a></div>
             </li>
         <% }) %> 
         </ul>
