@@ -37,6 +37,28 @@ const controlMut = {
         }
     },
 
+    async supprimerMutuelle(req, res){
+
+		try {
+
+			const data = await modelMut.Mutuelle.supprimerMutuelle(req)
+
+			if(data){
+
+				res.redirect("/mutuelle");
+
+			}else{
+
+				console.log("probleme");
+				res.redirect("/mutuelle");
+			}
+
+		} catch (error) {
+
+			console.log(error)
+		}
+	},
+
     async afficherUneMutuelle(req, res) {
 
         try {

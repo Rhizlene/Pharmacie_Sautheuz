@@ -1,14 +1,24 @@
 <%- include('header_user') %>
 
 
-    <div class="mb-4 text-center display-4 mt-5">
-        <h1 >Liste des Mutuelles</h1>
-    </div>
+<div class="mb-4 text-center display-4 mt-5">
+    <h1 >Liste des Mutuelles</h1>
+</div>
 
-    <br>
-    <br>
+<div class="container w-75 mt-5 bg-light p-3 li-container"> 
+    <ul class="list-group"> <% dataMutuelle.forEach(function(res){ %>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <!-- <div><input type="text" value="<%= res.med_Id %>" disabled hidden></div> -->
+            <div><strong><%= res.mut_Id %></strong></div>
+            <div><%= res.mut_Nom %></div>
+            <div>Taux de remboursement de <strong><%= res.mut_Taux %>%</strong></div>
+            <div><a href="http://localhost:3000/mutuelle/modifier/<%= res.mut_Id %> "><img src="/images/update.png" class="li-icon"></a> <a href="http://localhost:3000/mutuelle/supprimer/<%= res.mut_Id %>"><img src="/images/delete.png" class="li-icon"></a></div>
+        </li>
+    <% }) %> 
+    </ul>
+</div>
 
-    <div>
+    <!-- <div>
         <strong>Mutuelles :</strong>
         <ul> <% dataMutuelle.forEach(function(res){ %>
             <li>
@@ -16,6 +26,6 @@
             </li>
         <% }) %> 
         </ul>
-    </div>
+    </div> -->
 
 <%- include('footer') %>

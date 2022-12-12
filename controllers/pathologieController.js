@@ -37,6 +37,28 @@ const controlPath = {
         }
     },
 
+    async supprimerPathologie(req, res){
+
+        try {
+    
+            const data = await modelPath.Pathologie.supprimerPathologie(req)
+    
+            if(data){
+    
+                res.redirect("/pathologie");
+    
+            }else{
+    
+                console.log("probleme");
+                res.redirect("/pathologie");
+            }
+    
+        } catch (error) {
+    
+            console.log(error)
+        }
+    },
+
     async afficherUnePathologie(req, res) {
 
         try {

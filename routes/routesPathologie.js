@@ -8,5 +8,6 @@ routeur.get('/formulaire', ctrlPathologie.controlPath.formulairePathologie)
 routeur.post('/formulaire', ctrlPathologie.controlPath.ajouterPathologie)
 routeur.get('/modifier/:id', ctrlPathologie.controlPath.afficherUnePathologie)
 routeur.post('/modifier/:id', ctrlPathologie.controlPath.modifierPathologie)
+routeur.get('/supprimer/:id', ctrlPathologie.controlPath.supprimerPathologie)
 
 module.exports = routeur;

@@ -4,39 +4,48 @@
     <div class="mb-4 text-center display-4">
         <h1 >Ajouter un Patient</h1>
     </div>
-
-    <br>
-    <br>
-
-    <div> 
-        <form action="/patient/formulaire" method="post" enctype="application/x-www-form-urlencoded">
-            <label for="patNom">Nom :</label> 
-            <input type="text" id="patNom" name="patNom">
-
-            <label for="patPrenom">Prenom :</label> 
-            <input type="text" id="patPrenom" name="patPrenom">
-
-            <label for="patNaissance">Naissance :</label> 
-            <input type="date" id="patNaissance" name="patNaissance">
-
-            <label for="patNumSecu">Numéro de sécurité sociale :</label> 
-            <input type="text" id="patNumSecu" name="patNumSecu">
-
-            <label for="patNumMut">Numéro de mutuelle (AMC) :</label> 
-            <input type="text" id="patNumMut" name="patNumMut">
-
-            <label for="patMutuelle">Mutuelle :</label> 
-            <select name="patMutuelle" id="patMutuelle">
-                <% formPatient.forEach(function(res){ %>
-                    <option value="<%= res.mut_Id %>"><%= res.mut_Nom %></option>
-                <% }) %> 
-            </select>
+    <form action="/patient/formulaire" method="post" enctype="application/x-www-form-urlencoded">
+        <div class="row">
+            <div class="input-group mb-3">
+                <span class="input-group-text" for="patNom">Nom</span>
+                <input type="text" class="form-control" id="patNom" name="patNom">
+            </div>
+            <br>
+            <div class="input-group mb-3">
+                <span class="input-group-text" for="patPrenom">Prenom</span>
+                <input type="text" class="form-control" id="patPrenom" name="patPrenom">
+            </div>
+            <br>
+            <div class="input-group mb-3">
+                <span class="input-group-text" for="patNaissance">Naissance</span>
+                <input type="text" class="form-control" id="patNaissance" name="patNaissance">
+            </div>
+            <br>
+            <div class="input-group mb-3">
+                <span class="input-group-text" for="patNumSecu">Numéro sécurité sociale</span>
+                <input type="text" class="form-control" id="patNumSecu" name="patNumSecu">
+            </div>
+            <br>
+            <div class="input-group mb-3">
+                <span class="input-group-text" for="patNumMut">Numéro de mutuelle (AMC) </span>
+                <input type="text" class="form-control" id="patNumMut" name="patNumMut">
+            </div>
+            <br>
+            <div class="input-group mb-3">
+                <span class="input-group-text" for="chooseMut">Mutuelle</span>
+                <select class="form-select" name="chooseMut" id="chooseMut">
+                    <% formPatient.forEach(function(res){ %>
+                        <option value="<%= res.mut_Nom %>"><%= res.mut_Nom %></option>
+                    <% }) %>  
+                </select>
+            </div>
+            <hr class="my-4">
+    
+            <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-success btn-block" id="btnAjouterPatient">Ajouter</button>
+            </div>
         </div>
-        <br>
-
-        <div class="col-md-12 text-center">
-            <button type="submit" class="btn btn-success btn-block" id="btnAjouterPatient">Ajouter</button>
-        </div>
+        
     </form>
 </div>
 

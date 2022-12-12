@@ -64,6 +64,28 @@ const controlDip = {
         }
     },
 
+    async supprimerDiplome(req, res){
+
+		try {
+
+			const data = await modelDip.Diplome.supprimerDiplome(req)
+
+			if(data){
+
+				res.redirect("/diplome");
+
+			}else{
+
+				console.log("probleme");
+				res.redirect("/diplome");
+			}
+
+		} catch (error) {
+
+			console.log(error)
+		}
+	},
+
     async ajouterDiplome(req, res) {
 
         try {

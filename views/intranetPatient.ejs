@@ -1,19 +1,44 @@
 <%- include('header_user') %>
 
-    <div class="mb-4 text-center display-4 mt-5">
-        <h1 >Liste des Patients</h1>
-    </div>
+<div class="mb-4 text-center display-4 mt-5">
+    <h1 >Liste des Patients</h1>
+</div>
 
-    <br>
-    <br>
+<div class="container w-75 mt-5 li-container" >
+    <table id="table" class="table table-light table-striped table-responsive{-sm|-md|-lg|-xl}">
+        <thead>
+            <td class="tdhead"> #</td>
+            <td class="tdhead"> Nom</td>
+            <td class="tdhead"> Date de naissance</td>
+            <td class="tdhead"> N° sécurité sociale</td>
+            <td class="tdhead"> Mutuelle</td>
+            <td class="tdhead">  </td>
+        </thead>
+        <tbody class="" id="tableau">
+            <div class="list-group"> <% dataPatient.forEach(function(res){ %>
+                <tr>
+                <!-- <td class="list-group-item d-flex align-items-center"> -->
+                    <td><strong><%= res.pat_Id %></strong></td>
+                    <td><%= res.pat_Nom %> <%= res.pat_Prenom %></td>
+                    <td><%= res.pat_Naissance %></td>
+                    <td><%= res.pat_NumSecu %></td>
+                    <td><%= res.mut_Nom %> <br> <img src="/images/phone.png" class="li-icon">: <%= res.pat_NumMut %></td>
+                    <td class=" justify-content-between align-items-center"><a href="http://localhost:3000/patient/modifier/<%= res.pat_Id %> "><img src="/images/update.png" class="li-icon"></a> <a href="http://localhost:3000/patient/supprimer/<%= res.pat_Id %>"><img src="/images/delete.png" class="li-icon"></a></td>
+                </tr>
+                    <!-- </td> -->
+            <% }) %> 
+                </div>
+        </tbody>
+    </table>
+</div>
 
-    <div> 
+    <!-- <div> 
         <ul> <% dataPatient.forEach(function(res){ %>
             <li>
                 <strong>Monsieur</strong> <%= res.pat_Nom %> <%= res.pat_Prenom %>, <strong>né le</strong> <%= res.pat_Naissance %> - <strong>Numéro de sécurité sociale :</strong> <%= res.pat_NumSecu %> -  <strong>Mutuelle :</strong> <%= res.mut_Nom %> <strong>Avec le numéro : </strong> <%= res.pat_NumMut %> <a href="http://localhost:3000/patient/modifier/<%= res.pat_Id %> ">modifier</a> <a href="http://localhost:3000/patient/supprimer">supprimer</a>
             </li>
         <% }) %> 
         </ul>
-    </div>
+    </div> -->
 
 <%- include('footer') %>

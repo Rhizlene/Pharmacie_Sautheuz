@@ -8,5 +8,6 @@ routeur.get('/formulaire', ctrlMutuelle.controlMut.formulaireMutuelle)
 routeur.post('/formulaire', ctrlMutuelle.controlMut.ajouterMutuelle)
 routeur.get('/modifier/:id', ctrlMutuelle.controlMut.afficherUneMutuelle)
 routeur.post('/modifier/:id', ctrlMutuelle.controlMut.modifierMutuelle)
+routeur.get('/supprimer/:id', ctrlMutuelle.controlMut.supprimerMutuelle)
 
 module.exports = routeur;

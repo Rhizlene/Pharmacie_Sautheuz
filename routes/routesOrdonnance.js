@@ -5,5 +5,6 @@ const ctrlOrdonnance = require('../controllers/ordonnanceController.js');
 
 routeur.get('/', ctrlOrdonnance.controlOrdo.afficherOrdonnance)
 routeur.get('/formulaire', ctrlOrdonnance.controlOrdo.formulaireOrdonnance)
+routeur.get("/supprimmer/:id", ctrlOrdonnance.controlOrdo.supprimerOrdonnance)
 
 module.exports = routeur;

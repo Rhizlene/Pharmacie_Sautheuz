@@ -9,4 +9,6 @@ routeur.get('/modifier/:id', ctrlMedecin.controlMed.afficherUnMedecin)
 routeur.post('/modifier/:id', ctrlMedecin.controlMed.modifierMedecin)
 routeur.post('/formulaire', ctrlMedecin.controlMed.ajouterMedecin)
 
+routeur.get('/supprimer/:id', ctrlMedecin.controlMed.supprimerMedecin)
+
 module.exports = routeur;

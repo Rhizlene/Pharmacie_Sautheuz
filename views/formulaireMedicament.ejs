@@ -1,13 +1,37 @@
 <%- include('header_user') %>
 
-    <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis architecto voluptas ullam enim quae necessitatibus molestiae dignissimos fugiat. Odit non saepe voluptate commodi, vero fugit ut soluta dolore sunt quae nobis officiis accusantium eius dolorum optio repudiandae nesciunt. Deserunt odit, corrupti inventore praesentium, unde quos fugit, facilis eius necessitatibus commodi vitae consequatur est at illo ex optio sapiente. Reprehenderit aperiam nam velit, dolore esse ullam consequuntur laborum vel et quasi est facere deleniti quam tenetur numquam praesentium tempore laboriosam. Blanditiis dicta similique nulla, distinctio a neque natus maxime! Ea iste harum illo obcaecati nemo debitis quaerat quidem voluptates et molestias aut optio possimus similique odit, repellendus minima asperiores quam libero, in a delectus? Corrupti voluptatum et perspiciatis deleniti, dolore id! ipsum dolor sit amet consectetur adipisicing elit. Optio ducimus enim quod ullam similique tenetur laboriosam amet rerum eligendi? Earum illum fugiat dignissimos consectetur ea architecto harum doloribus eligendi aliquid?
+    <div id="inputContainer" class="container w-50 p-5">
+        <div class="mb-5 text-center display-4">
+            <h1 >Ajouter un Médicament</h1>
+        </div>
+        <form action="/medicament/formulaire" method="post" enctype="application/x-www-form-urlencoded">
+            <div class="row">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" for="medicNom">Nom</span>
+                    <input type="text" class="form-control" id="medicNom" name="medicNom">
+                </div>
+                <br>
+                <small class="text-muted">(nombre de boites)</small>
+                <div class="input-group  mb-3">
+                    <span class="input-group-text" for="medicQteStock">Quantité en stock </span>
+                    <input type="text" class="form-control" id="medicQteStock" name="medicQteStock">
+                </div>
+                <br>
+                <small class="text-muted">(comprimé, pastille, pilule ...)</small>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" for="medicType"> Type :</span>
+                    <input type="text" class="form-control" id="medicType" name="medicType">
+                </div>
+                <hr class="my-4">
+                <div class="col-md-12 text-center">
+                    <button type="submit" class="btn btn-success btn-block" id="btnAjouterMedicament">Ajouter</button>
+                </div>
+            </div>
+            
+        </form>
     </div>
 
-    <br>
-    <br>
-
-    <div> 
+    <!-- <div> 
         <form action="/medicament/formulaire" method="post" enctype="application/x-www-form-urlencoded">
             
             <label for="medicNom">Nom :</label> 
@@ -20,6 +44,6 @@
             <input type="text" id="medicType" name="medicType">
 
             <button type="submit" class="btn btn-success" id="btnAjouterMedicament">Ajouter</button>
-    </div>
+    </div> -->
 
 <%- include('footer') %>

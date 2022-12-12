@@ -73,6 +73,28 @@ const controlMed = {
         }
     },
 
+    async supprimerMedecin(req, res){
+
+		try {
+
+			const data = await modelMed.Medecin.supprimerMedecin(req)
+
+			if(data){
+
+				res.redirect("/medecin");
+
+			}else{
+
+				console.log("probleme");
+				res.redirect("/medecin");
+			}
+
+		} catch (error) {
+
+			console.log(error)
+		}
+	},
+
     async ajouterMedecin(req, res) {
 
         try {

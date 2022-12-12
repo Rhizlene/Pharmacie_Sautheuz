@@ -98,8 +98,25 @@ const Mutuelle = {
         })
     },
 
-    async supprimerMutuelle() {
-
+    async supprimerMutuelle(req) {
+        let mutId = req.params.id
+    
+            let requete = "DELETE FROM mutuelle WHERE mut_Id = ?"
+    
+            return new Promise((reussi, echec)=>{
+    
+                mysqlconnexion.query(requete, [mutId], (err, lignes, champs) => {
+    
+                    if(err){
+    
+                        return echec(err)
+    
+                    }
+    
+                    return reussi(lignes)
+    
+                })
+            })
     },
 
     async rechercherMutuelle() {

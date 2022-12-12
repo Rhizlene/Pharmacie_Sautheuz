@@ -1,46 +1,48 @@
 <%- include('header_user') %>
 
-    <div class="mb-4 text-center display-4">
+    <div class="mt-5 mb-3 text-center display-4">
         <h1 >Modifier un Médecin</h1>
     </div>
 
     <div class="container w-50 p-5">
 
-    <div> <% dataMedecin.forEach(function(res){ %>
-        <form action="/medecin/modifier/<%= res.med_Id %>" method="post" enctype="application/x-www-form-urlencoded">
-            
-            <div class="input-group">
-                <label class="input-group-text" id="" for="medNom">Nom</label>
-                <input type="text" class="form-control" id="medNom" name="medNom" value="<%= res.med_Nom %>">
-            </div>
-            <br>
-            <div class="input-group">
-                <label class="input-group-text" id="" for="medPrenom">Prénom</label>
-                <input type="text" class="form-control" id="medPrenom" name="medPrenom" value="<%= res.med_Prenom %>">
-            </div>
-            <br>
-            <div class="input-group">
-                <label class="input-group-text" id="" for="medDiplome">Diplome</label>
-                <select class="form-select" name="medDiplome" id="medDiplome">
-                    <% dataDiplome.forEach(function(res){ %>
-                        <option value="<%= res.dip_Id %>"><%= res.dip_Nom %></option>
-                    <% }) %> 
-                </select>
-            </div>
-            <br>
-            <div class="input-group">
-                <label class="input-group-text" id="" for="medNum">Numéro</label>
-                <input type="text" class="form-control" name="medNum" id="medNum" value="<%= res.med_Num %>">
-            </div>
-            <br>
-            <div class="col-md-12 text-center">
-                <button type="submit" class="btn btn-success btn-block" id="btnAjouterMedecin">Ajouter</button>
-            </div>
-        </form>
-    </div>  <% }) %> 
+        <div> <% dataMedecin.forEach(function(res){ %>
+            <form action="/medecin/modifier/<%= res.med_Id %>" method="post" enctype="application/x-www-form-urlencoded">
+                <div class="row">
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" id="" for="medNom">Nom</label>
+                        <input type="text" class="form-control" id="medNom" name="medNom" value="<%= res.med_Nom %>">
+                    </div>
+                    <br>
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" id="" for="medPrenom">Prénom</label>
+                        <input type="text" class="form-control" id="medPrenom" name="medPrenom" value="<%= res.med_Prenom %>">
+                    </div>
+                    <br>
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" id="" for="medDiplome">Diplome</label>
+                        <select class="form-select" name="medDiplome" id="medDiplome">
+                            <% dataDiplome.forEach(function(res){ %>
+                                <option value="<%= res.dip_Id %>"><%= res.dip_Nom %></option>
+                            <% }) %> 
+                        </select>
+                    </div>
+                    <br>
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" id="" for="medNum">Numéro</label>
+                        <input type="text" class="form-control" name="medNum" id="medNum" value="<%= res.med_Num %>">
+                    </div>
+                    <br>
+                    <div class="col-md-12 text-center">
+                        <button type="submit" class="btn btn-success btn-block" id="btnAjouterMedecin">Modifier</button>
+                    </div>
+                </div>
+                
+            </form>
+        </div>  <% }) %> 
 
-    <br>
-    <a href="http://localhost:3000/medecin">⬅️</a>
+        <br>
+        <a href="http://localhost:3000/medecin"><img src="/images/goback.png" class="li-icon"></a>
     </div>
 
 <%- include('footer') %>

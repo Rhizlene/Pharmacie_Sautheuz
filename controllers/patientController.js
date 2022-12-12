@@ -88,6 +88,28 @@ const controlPat = {
         } catch (error) {
             console.log(error)
         }
+    },
+
+    async supprimerPatient(req, res){
+
+        try {
+    
+            const data = await modelPat.Patient.supprimerPatient(req)
+    
+            if(data){
+    
+                res.redirect("/patient");
+    
+            }else{
+    
+                console.log("probleme");
+                res.redirect("/patient");
+            }
+    
+        } catch (error) {
+    
+            console.log(error)
+        }
     }
 
 

@@ -1,13 +1,58 @@
 <%- include('header_user') %>
 
-    <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis architecto voluptas ullam enim quae necessitatibus molestiae dignissimos fugiat. Odit non saepe voluptate commodi, vero fugit ut soluta dolore sunt quae nobis officiis accusantium eius dolorum optio repudiandae nesciunt. Deserunt odit, corrupti inventore praesentium, unde quos fugit, facilis eius necessitatibus commodi vitae consequatur est at illo ex optio sapiente. Reprehenderit aperiam nam velit, dolore esse ullam consequuntur laborum vel et quasi est facere deleniti quam tenetur numquam praesentium tempore laboriosam. Blanditiis dicta similique nulla, distinctio a neque natus maxime! Ea iste harum illo obcaecati nemo debitis quaerat quidem voluptates et molestias aut optio possimus similique odit, repellendus minima asperiores quam libero, in a delectus? Corrupti voluptatum et perspiciatis deleniti, dolore id! ipsum dolor sit amet consectetur adipisicing elit. Optio ducimus enim quod ullam similique tenetur laboriosam amet rerum eligendi? Earum illum fugiat dignissimos consectetur ea architecto harum doloribus eligendi aliquid?
+<div id="inputContainer" class="container w-50 p-5">
+    <div class="mb-4 text-center display-4">
+        <h1 >Ajouter un Patient</h1>
     </div>
-
-    <br>
-    <br>
-
     <div> <% dataPatient.forEach(function(res){ %>
+        <form action="/patient/modifier/<%= res.pat_Id %>" method="post" enctype="application/x-www-form-urlencoded">
+            <div class="row">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" for="patNom">Nom</span>
+                    <input type="text" class="form-control" id="patNom" name="patNom" value="<%= res.pat_Nom %>">
+                </div>
+                <br>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" for="patPrenom">Prenom</span>
+                    <input type="text" class="form-control" id="patPrenom" name="patPrenom" value="<%= res.pat_Prenom %>">
+                </div>
+                <br>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" for="patNaissance">Naissance</span>
+                    <input type="text" class="form-control" id="patNaissance" name="patNaissance" value="<%= res.pat_Naissance %>">
+                </div>
+                <br>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" for="patNumSecu">Numéro sécurité sociale</span>
+                    <input type="text" class="form-control" id="patNumSecu" name="patNumSecu" value="<%= res.pat_NumSecu %>">
+                </div>
+                <br>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" for="patNumMut">Numéro de mutuelle (AMC) </span>
+                    <input type="text" class="form-control" id="patNumMut" name="patNumMut" value="<%= res.pat_NumMut %>">
+                </div>
+                <br>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" for="patMutuelle">Mutuelle</span>
+                    <select class="form-select" name="patMutuelle" id="patMutuelle">
+                        <% dataMutuelle.forEach(function(res){ %>
+                            <option value="<%= res.mut_Id %>"><%= res.mut_Nom %></option>
+                        <% }) %> 
+                    </select>
+                </div>
+                <hr class="my-4">
+        
+                <div class="col-md-12 text-center">
+                    <button type="submit" class="btn btn-success btn-block" >Ajouter</button>
+                </div>
+            </div>
+            <% }) %>
+        </form>
+    </div>
+    <a href="http://localhost:3000/diplome"><img src="/images/goback.png" class="li-icon"></a>
+</div>
+
+    <!-- <div> <% dataPatient.forEach(function(res){ %>
 
         <form action="/patient/modifier/<%= res.pat_Id %>" method="post" enctype="application/x-www-form-urlencoded">
             <ul>
@@ -40,6 +85,6 @@
             </ul>
         </form>
     </div>
-    <a href="http://localhost:3000/patient">⬅️</a>
+    <a href="http://localhost:3000/patient">⬅️</a> -->
 
 <%- include('footer') %>

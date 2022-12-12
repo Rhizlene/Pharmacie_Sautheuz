@@ -98,8 +98,26 @@ const Diplome = {
         })
     },
 
-    async supprimerDiplome() {
+    async supprimerDiplome(req) {
 
+        let dipId = req.params.id
+
+        let requete = "DELETE FROM diplome WHERE dip_Id = ?"
+
+        return new Promise((reussi, echec)=>{
+
+            mysqlconnexion.query(requete, [dipId], (err, lignes, champs) => {
+
+                if(err){
+
+                    return echec(err)
+
+                }
+
+                return reussi(lignes)
+
+            })
+        })
     },
 
     async rechercherDiplome() {

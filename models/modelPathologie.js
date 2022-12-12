@@ -96,8 +96,25 @@ const Pathologie = {
         })
     },
 
-    async supprimerPathologie() {
-
+    async supprimerPathologie(req) {
+        let pathId = req.params.id
+    
+        let requete = "DELETE FROM pathologie WHERE path_Id = ?"
+    
+        return new Promise((reussi, echec)=>{
+    
+            mysqlconnexion.query(requete, [pathId], (err, lignes, champs) => {
+    
+                if(err){
+    
+                    return echec(err)
+    
+                }
+    
+                return reussi(lignes)
+    
+            })
+        })
     },
 
     async rechercherPathologie() {

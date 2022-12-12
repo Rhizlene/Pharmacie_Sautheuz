@@ -116,8 +116,25 @@ const Ordonnance = {
 
     },
 
-    async supprimerOrdonnance() {
-
+    async supprimerOrdonnance(req) {
+        let ordoId = req.params.id
+    
+        let requete = "DELETE FROM ordonnance WHERE ordo_Id = ?"
+    
+        return new Promise((reussi, echec)=>{
+    
+            mysqlconnexion.query(requete, [ordoId], (err, lignes, champs) => {
+    
+                if(err){
+    
+                    return echec(err)
+    
+                }
+    
+                return reussi(lignes)
+    
+            })
+        })
     },
 
     async rechercherOrdonnance() {

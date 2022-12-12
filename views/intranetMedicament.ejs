@@ -4,17 +4,17 @@
     <h1 >Liste des Médicaments</h1>
 </div>
 
-    <br>
-    <br>
-
-    <div> 
-        <strong>Médicaments :</strong> 
-        <ul> <% dataMedicament.forEach(function(res){ %>
-            <li>
-                <%= res.medic_Nom %> (<%= res.medic_Type %>) - <%= res.medic_QteStock %> boites en stock  <a href="http://localhost:3000/medicament/modifier/<%= res.medic_Id %> ">modifier</a> <a href="http://localhost:3000/medicament/supprimer">supprimer</a>
-            </li>
-        <% }) %> 
-        </ul>
-    </div>
+<div class="container w-50 mt-5 bg-light p-3 li-container"> 
+    <ul class="list-group"> <% dataMedicament.forEach(function(res){ %>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <!-- <div><input type="text" value="<%= res.med_Id %>" disabled hidden></div> -->
+            <div><strong><%= res.medic_Id %></strong></div>
+            <div><%= res.medic_Nom %> (<%= res.medic_Type %>)</div>
+            <div><strong><%= res.medic_QteStock %></strong> boites en stock</div>
+            <div><a href="http://localhost:3000/medicament/modifier/<%= res.medic_Id %> "><img src="/images/update.png" class="li-icon"></a> <a href="http://localhost:3000/medicament/supprimer/<%= res.medic_Id %>"><img src="/images/delete.png" class="li-icon"></a></div>
+        </li>
+    <% }) %> 
+    </ul>
+</div>
 
 <%- include('footer') %>

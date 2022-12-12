@@ -1,19 +1,20 @@
 <%- include('header_user') %>
 
-    <div class="mb-4 text-center display-4 mt-5">
-        <h1 >Liste des Médecins</h1>
-    </div>
+<div class="mb-4 text-center display-4 mt-5">
+    <h1 >Liste des Médecins</h1>
+</div>
 
-    <br>
-    <br>
-
-    <div> 
-        <ul> <% dataMedecin.forEach(function(res){ %>
-            <li>
-                <strong>Monsieur</strong> <%= res.med_Nom %> <%= res.med_Prenom %>, <%= res.dip_Nom %> - <strong>Num :</strong> <%= res.med_Num %> <a href="http://localhost:3000/medecin/modifier/<%= res.med_Id %> ">modifier</a> <a href="http://localhost:3000/medecin/supprimer">supprimer</a>
-            </li>
-        <% }) %> 
-        </ul>
-    </div>
+<div class="container w-75 mt-5 bg-light p-3 li-container"> 
+    <ul class="list-group"> <% dataMedecin.forEach(function(res){ %>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <!-- <div><input type="text" value="<%= res.med_Id %>" disabled hidden></div> -->
+            <div><strong><%= res.med_Id %></strong></div>
+            <div> <strong>Dr.</strong>  <%= res.med_Nom %> <%= res.med_Prenom %>  (<i><%= res.dip_Nom %></i>)</div>
+            <div><img src="/images/phone.png" class="li-icon">: <%= res.med_Num %></div>
+            <div><a href="http://localhost:3000/medecin/modifier/<%= res.med_Id %> "><img src="/images/update.png" class="li-icon"></a> <a href="http://localhost:3000/medecin/supprimer/<%= res.med_Id %>"><img src="/images/delete.png" class="li-icon"></a></div>
+        </li>
+    <% }) %> 
+    </ul>
+</div>
 
 <%- include('footer') %>

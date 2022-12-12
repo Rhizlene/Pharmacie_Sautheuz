@@ -103,8 +103,26 @@ const Medecin = {
         })
     },
 
-    async supprimerMedecin() {
+    async supprimerMedecin(req) {
 
+        let medId = req.params.id
+
+        let requete = "DELETE FROM medecin WHERE med_Id = ?"
+
+        return new Promise((reussi, echec)=>{
+
+            mysqlconnexion.query(requete, [medId], (err, lignes, champs) => {
+
+                if(err){
+
+                    return echec(err)
+
+                }
+
+                return reussi(lignes)
+
+            })
+        })
     },
 
     async rechercherMedecin () {

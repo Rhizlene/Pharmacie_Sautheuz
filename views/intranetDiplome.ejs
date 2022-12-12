@@ -4,17 +4,17 @@
     <h1 >Liste des Diplomes</h1>
 </div>
 
-    <br>
-    <br>
+<div class="container w-50 mt-5 bg-light p-2 li-container"> 
+    <ul class="list-group"> <% dataDiplome.forEach(function(res){ %>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <!-- <div><input type="text" value="<%= res.med_Id %>" disabled hidden></div> -->
+            <div><strong><%= res.dip_Id %></strong></div>
+            <div><%= res.dip_Nom %></div>
+            <div><a href="http://localhost:3000/diplome/modifier/<%= res.dip_Id %> "><img src="/images/update.png" class="li-icon"></a> <a href="http://localhost:3000/diplome/supprimer/<%= res.dip_Id %>"><img src="/images/delete.png" class="li-icon"></a></div>
+        </li>
+    <% }) %> 
+    </ul>
+</div>
 
-    <div> 
-        <strong>Diplomes :</strong>
-        <ul> <% dataDiplome.forEach(function(res){ %>
-            <li>
-                <%= res.dip_Nom %> <a href="http://localhost:3000/diplome/modifier/<%= res.dip_Id %> ">modifier</a> <a href="http://localhost:3000/diplome/supprimer">supprimer</a>
-            </li>
-        <% }) %> 
-        </ul>
-    </div>
 
 <%- include('footer') %>

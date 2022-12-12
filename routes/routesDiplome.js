@@ -8,5 +8,6 @@ routeur.get('/formulaire', ctrlDiplome.controlDip.formulaireDiplome)
 routeur.post('/formulaire', ctrlDiplome.controlDip.ajouterDiplome)
 routeur.get('/modifier/:id', ctrlDiplome.controlDip.afficherUnDiplome)
 routeur.post('/modifier/:id', ctrlDiplome.controlDip.modifierDiplome)
+routeur.get('/supprimer/:id', ctrlDiplome.controlDip.supprimerDiplome)
 
 module.exports = routeur;

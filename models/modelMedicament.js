@@ -100,8 +100,25 @@ const Medicament = {
         })
     },
 
-    async supprimerMedicament() {
-
+    async supprimerMedicament(req) {
+        let medicId = req.params.id
+    
+            let requete = "DELETE FROM medicament WHERE medic_Id = ?"
+    
+            return new Promise((reussi, echec)=>{
+    
+                mysqlconnexion.query(requete, [medicId], (err, lignes, champs) => {
+    
+                    if(err){
+    
+                        return echec(err)
+    
+                    }
+    
+                    return reussi(lignes)
+    
+                })
+            })
     },
 
     async rechercherMedicament() {

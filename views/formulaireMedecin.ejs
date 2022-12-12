@@ -1,39 +1,39 @@
 <%- include('header_user') %>
 
-
-
     <div id="inputContainer" class="container w-50 p-5">
-        <div class="mb-4 text-center display-4">
+        <div class="mb-5 text-center display-4">
             <h1 >Ajouter un Médecin</h1>
         </div>
         <form action="/medecin/formulaire" method="POST" enctype="application/x-www-form-urlencoded">
             
-            <div class="input-group">
-                <label class="input-group-text" id="" for="medNom">Nom</label>
-                <input type="text" class="form-control" name="medNom" id="medNom" placeholder="">
-            </div>
-            <br>
-            <div class="input-group">
-                <label class="input-group-text" id="" for="medPrenom">Prénom</label>
-                <input type="text" class="form-control" name="medPrenom" id="medPrenom" placeholder="">
-            </div>
-            <br>
-            <div class="input-group">
-                <label class="input-group-text" id="" for="medDiplome">Diplome</label>
-                <select class="form-select" name="medDiplome" id="medDiplome">
-                    <% formMedecin.forEach(function(res){ %>
-                        <option value="<%= res.dip_Id %>"><%= res.dip_Nom %></option>
-                    <% }) %> 
-                </select>
-            </div>
-            <br>
-            <div class="input-group">
-                <label class="input-group-text" id="" for="medNum">Numéro de téléphone</label>
-                <input type="text" class="form-control" name="medNum" id="medNum" placeholder="">
-            </div>
-            <br>
-            <div class="col-md-12 text-center">
-                <button type="submit" class="btn btn-success btn-block" id="btnAjouterMedecin">Ajouter</button>
+            <div class="row">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" for="medNom">Nom</span>
+                    <input type="text" class="form-control" name="medNom" id="medNom">
+                </div>
+                <br>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" for="medPrenom">Prénom</span>
+                    <input type="text" class="form-control" name="medPrenom" id="medPrenom">
+                </div>
+                <br>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" for="medDiplome">Diplome</span>
+                    <select class="form-select" name="medDiplome" id="medDiplome">
+                        <% formMedecin.forEach(function(res){ %>
+                            <option value="<%= res.dip_Id %>"><%= res.dip_Nom %></option>
+                        <% }) %> 
+                    </select>
+                </div>
+                <br>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" for="medNum">Numéro de téléphone</span>
+                    <input type="text" class="form-control" name="medNum" id="medNum">
+                </div>
+                <hr class="my-4">
+                <div class="col-md-12 text-center">
+                    <button type="submit" class="btn btn-success btn-block" id="btnAjouterMedecin">Ajouter</button>
+                </div>
             </div>
         </form>
         

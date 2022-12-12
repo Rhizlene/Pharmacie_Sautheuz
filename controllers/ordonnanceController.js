@@ -34,6 +34,28 @@ const controlOrdo = {
         } catch (error) {
             console.log(error)
         }
+    },
+
+    async supprimerOrdonnance(req, res){
+
+        try {
+    
+            const data = await modelOrdo.Ordonnance.supprimerOrdonnace(req)
+    
+            if(data){
+    
+                res.redirect("/ordonnance");
+    
+            }else{
+    
+                console.log("probleme");
+                res.redirect("/ordonnance");
+            }
+    
+        } catch (error) {
+    
+            console.log(error)
+        }
     }
 }
 

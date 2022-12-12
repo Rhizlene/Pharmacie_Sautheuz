@@ -141,8 +141,25 @@ const Patient = {
         })
     },
 
-    async supprimerPatient() {
-
+    async supprimerPatient(req) {
+        let patId = req.params.id
+    
+        let requete = "DELETE FROM patient WHERE pat_Id = ?"
+    
+        return new Promise((reussi, echec)=>{
+    
+            mysqlconnexion.query(requete, [patId], (err, lignes, champs) => {
+    
+                if(err){
+    
+                    return echec(err)
+    
+                }
+    
+                return reussi(lignes)
+    
+            })
+        })
     },
 
     async rechercherPatient() {

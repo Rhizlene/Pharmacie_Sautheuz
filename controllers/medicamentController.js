@@ -47,6 +47,28 @@ const controlMedic = {
         }
     },
 
+    async supprimerMedicament(req, res){
+
+		try {
+
+			const data = await modelMedic.Medicament.supprimerMedicament(req)
+
+			if(data){
+
+				res.redirect("/medicament");
+
+			}else{
+
+				console.log("probleme");
+				res.redirect("/medicament");
+			}
+
+		} catch (error) {
+
+			console.log(error)
+		}
+	},
+
     async afficherUnMedicament(req, res) {
 
         try {
