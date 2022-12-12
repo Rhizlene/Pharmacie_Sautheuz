@@ -20,9 +20,11 @@ const Ordonnance = {
 
     async afficherOrdonnance() {
 
+        let requete = "SELECT * FROM ordonnance, patient, medecin, diplome, pathologie WHERE ordo_PatId=pat_Id AND ordo_MedId = med_Id AND ordo_PathId = path_Id AND med_DipId = dip_Id"
+
         return new Promise((reussi, echec) => {
 
-            mysqlconnexion.query("SELECT * FROM ordonnance, patient, medecin, diplome, posologie, medicament, pathologie WHERE med_DipId=dip_ID and ordo_PatId=pat_Id and ordo_MedId=med_Id and ordo_PathId=path_Id and ordo_PosId=pos_Id and med_DipId=dip_Id and pos_MedicId=medic_Id", (err, lignes, champs) => {
+            mysqlconnexion.query(requete, (err, lignes, champs) => {
 
                 if (err) {
 
@@ -38,74 +40,7 @@ const Ordonnance = {
 
     async formulaireOrdonnance() {
 
-        return new Promise ((reussi, echec) => {
-
-            mysqlconnexion.query("SELECT pat_Nom, pat_Prenom, pat_Naissance FROM patient", (err, lignes, champs) => {
-
-                if (err) {
-                    
-                    return echec(lignes)
-
-                } else {
-
-                    return reussi(lignes)
-
-                }
-
-            });
-            mysqlconnexion.query("SELECT med_Nom, med_Prenom, med_Num FROM medecin", (err, lignes, champs) => {
-
-                if (err) {
-                    
-                    return echec(lignes)
-
-                } else {
-
-                    return reussi(lignes)
-
-                }
-
-            });
-            mysqlconnexion.query("SELECT dip_Nom FROM diplome", (err, lignes, champs) => {
-
-                if (err) {
-                    
-                    return echec(lignes)
-
-                } else {
-
-                    return reussi(lignes)
-
-                }
-
-            });
-            mysqlconnexion.query("SELECT path_Nom FROM pathologie", (err, lignes, champs) => {
-
-                if (err) {
-                    
-                    return echec(lignes)
-
-                } else {
-
-                    return reussi(lignes)
-
-                }
-
-            });
-            mysqlconnexion.query("SELECT medic_Nom, medic_Type FROM medicament", (err, lignes, champs) => {
-
-                if (err) {
-                    
-                    return echec(lignes)
-
-                } else {
-
-                    return reussi(lignes)
-
-                }
-
-            });
-        })
+        
     },
 
     async ajouterOrdonnance() {

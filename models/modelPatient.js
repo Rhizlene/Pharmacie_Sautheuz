@@ -108,22 +108,6 @@ const Patient = {
         })
     },
 
-    async afficherLesMutuelles() {
-
-        let requete = "SELECT * FROM mutuelle"
-
-        return new Promise((reussi, echec) => {
-            mysqlconnexion.query(requete,(err, lignes)=> {
-
-                if (err) {
-                    return echec(err)
-                }
-
-                return reussi(lignes)
-            })
-        })
-    },
-
     async afficherUnPatient(req) {
         let patId = req.params.id
 

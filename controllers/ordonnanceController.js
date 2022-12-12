@@ -6,13 +6,13 @@ const controlOrdo = {
 
         try {
             
-            const data = await modelOrdo.Ordonnance.afficherOrdonnance()
+            const dataOrdo = await modelOrdo.Ordonnance.afficherOrdonnance()
 
-            if (data) {
-                res.render('intranetOrdonnance', {dataOrdonnance : data})
+            if (dataOrdo) {
+                res.render('intranetOrdonnance', {dataOrdonnance : dataOrdo})
 
             }else {
-                res.render('intranetOrdonnance', {dataOrdonnance : {} })
+                res.render('intranetOrdonnance', {dataOrdonnance : {}})
             } 
         } catch (error) {
             console.log(error)

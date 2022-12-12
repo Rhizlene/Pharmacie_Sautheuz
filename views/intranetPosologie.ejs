@@ -1,0 +1,20 @@
+<%- include('header_user') %>
+
+<div class="mb-4 text-center display-4 mt-5">
+    <h1 >Posologie pour une Ordonnance</h1>
+</div>
+
+    <div class="container w-75 mt-5 bg-light p-3 li-container"> 
+        <ul class="list-group"><% dataPosologie.forEach(function(res){ %>
+            <li class="list-group-item d-flex align-items-center">
+                <div><strong>Medicament </strong><%= res.medic_Nom %> - <%= res.medic_Type %></div>
+                <div><strong>Nombre de boites </strong><%= res.pos_MedicQte %></div>
+                <div><strong>Pour une durée de </strong><%= res.pos_Duree %> <strong> Mois</strong></div>
+                <div><a href="http://localhost:3000/posologie/modifier/<%= res.pos_Id %> "><img src="/images/update.png" class="li-icon"></a></div>
+            </li>
+        <% }) %> 
+        </ul>
+    </div>
+    <a href="http://localhost:3000/ordonnance"><img src="/images/goback.png" class="li-icon"></a>
+
+<%- include('footer') %>

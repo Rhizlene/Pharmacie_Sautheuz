@@ -1,4 +1,5 @@
 const modelPat = require('../models/modelPatient')
+const modelMut = require('../models/modelMutuelle')
 
 const controlPat = {
 
@@ -6,13 +7,13 @@ const controlPat = {
 
         try {
             
-            const data = await modelPat.Patient.afficherPatient()
+            const dataPat = await modelPat.Patient.afficherPatient()
 
-            if (data) {
-                res.render('intranetPatient', {dataPatient : data})
+            if (dataPat) {
+                res.render('intranetPatient', {dataPatient : dataPat})
 
             }else {
-                res.render('intranetPatient', {dataPatient : {} })
+                res.render('intranetPatient', {dataPatient : {}})
             } 
         } catch (error) {
             console.log(error)
@@ -59,7 +60,7 @@ const controlPat = {
         try {
             
             const dataPat = await modelPat.Patient.afficherUnPatient(req)
-            const dataMut = await modelPat.Patient.afficherLesMutuelles()
+            const dataMut = await modelMut.Mutuelle.afficherMutuelle()
 
             if (dataPat && dataMut) {
                 res.render("modifierPatient", {dataPatient : dataPat, dataMutuelle : dataMut})

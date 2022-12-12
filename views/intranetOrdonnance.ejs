@@ -8,12 +8,12 @@
         <ul class="list-group"><% dataOrdonnance.forEach(function(res){ %>
             <li class="list-group-item d-flex align-items-center">
                 <!-- <div><input type="text" value="<%= res.med_Id %>" disabled hidden></div> -->
+                <div><strong><%= res.ordo_Date %></strong></div>
                 <div><strong><%= res.pat_Nom %></strong><%= res.pat_Prenom %> - <%= res.pat_Naissance %></div>
-                <div> <strong>Dr.</strong>  <%= res.med_Nom %> <%= res.med_Prenom %>  (<i><%= res.dip_Nom %></i>) / <img src="/images/phone.png" class="li-icon">: <%= res.med_Num %></div>
-                <div><%= res.pos_Duree %></div>
-                <div><%= res.pos_MedicQte %></div>
-                <div> <%= res.medic_Type %> <%= res.medic_Nom %></div>
-                <div><a href="http://localhost:3000/ordonnance/modifier/<%= res.med_Id %> "><img src="/images/update.png" class="li-icon"></a> <a href="http://localhost:3000/ordonnance/supprimer/<%= res.med_Id %>"><img src="/images/delete.png" class="li-icon"></a></div>
+                <div><strong>Souffrant de : </strong><%= res.path_Nom %></div>
+                <div> <strong>Dr.</strong>  <%= res.med_Nom %> <%= res.med_Prenom %> (<i><%= res.dip_Nom %></i>) / <img src="/images/phone.png" class="li-icon">: <%= res.med_Num %></div>
+                <div><a href="http://localhost:3000/posologie/<%= res.ordo_Id %> ">voir les Médicament</a></div>
+                <div><a href="http://localhost:3000/ordonnance/modifier/<%= res.ordo_Id %> "><img src="/images/update.png" class="li-icon"></a> <a href="http://localhost:3000/ordonnance/supprimer/<%= res.ordo_Id %>"><img src="/images/delete.png" class="li-icon"></a></div>
             </li>
         <% }) %> 
         </ul>
