@@ -1,0 +1,41 @@
+<%- include('header_user') %>
+
+<div id="inputContainer" class="container w-50 p-5">
+    <div class="mb-5 text-center display-4">
+        <h1 >Ajouter une Posologie</h1>
+    </div>  <% dataOrdonnance.forEach(function(res){ %>
+    <form action="/posologie/formulaire" method="post" enctype="application/x-www-form-urlencoded">
+        <div class="row">
+            <div class="input-group mb-3">
+                <span class="input-group-text" for="ordoId">Numéro ordonnance</span>
+                <input type="text" class="form-control" id="ordoId" name="ordoId" value="<%= res.ordo_Id %>">
+            </div><% }) %> 
+            <br>
+            <div class="input-group mb-3">
+                <span class="input-group-text" for="posMedicQte">Quantité médicament</span>
+                <input type="number" class="form-control" id="posMedicQte" name="posMedicQte">
+            </div>
+            <br>
+            <div class="input-group mb-3">
+                <span class="input-group-text" for="posDuree">Durée</span>
+                <input type="number" class="form-control" id="posDuree" name="posDuree">
+            </div>
+            <br>
+            <div class="input-group mb-3">
+                <span class="input-group-text" for="posMedicId">Nom du médicament</span>
+                <select class="form-select" name="posMedicId" id="posMedicId">
+                    <% dataMedicament.forEach(function(res){ %>
+                        <option value="<%= res.medic_Id %>"><%= res.medic_Nom %></option>
+                    <% }) %> 
+                </select>
+            </div>
+            <hr class="my-4">
+            <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-success btn-block" id="btnAjouterPosologie">Ajouter</button>
+            </div>
+        </div>
+    </form>
+</div>
+<a href="http://localhost:3000/ordonnance"><img src="/images/goback.png" class="li-icon"></a>
+
+<%- include('footer') %>

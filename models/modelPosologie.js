@@ -30,7 +30,32 @@ const Posologie = {
 
                 if (err) {
 
-                    return echec(lignes)
+                    return echec(err)
+
+                }
+
+                return reussi(lignes)
+
+            })
+        })
+    },
+
+    async ajouterPosologie(req) {
+
+        let ordoId = req.body.ordoId
+        let posMedicQte = req.body.posMedicQte
+        let posDuree = req.body.posDuree
+        let posMedicId = req.body.posMedicId
+
+        let requete = "INSERT INTO posologie (pos_OrdoId, pos_MedicQte, pos_Duree, pos_MedicId) VALUES (?, ?, ?, ?)"
+
+        return new Promise((reussi, echec) => {
+
+            mysqlconnexion.query(requete, [ordoId, posMedicQte, posDuree, posMedicId], (err, lignes, champs) => {
+
+                if (err) {
+
+                    return echec(err)
 
                 }
 
