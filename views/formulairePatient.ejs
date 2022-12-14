@@ -18,7 +18,7 @@
             <br>
             <div class="input-group mb-3">
                 <span class="input-group-text" for="patNaissance">Naissance</span>
-                <input type="text" class="form-control" id="patNaissance" name="patNaissance">
+                <input type="date" class="form-control" id="patNaissance" name="patNaissance">
             </div>
             <br>
             <div class="input-group mb-3">
@@ -32,10 +32,10 @@
             </div>
             <br>
             <div class="input-group mb-3">
-                <span class="input-group-text" for="chooseMut">Mutuelle</span>
-                <select class="form-select" name="chooseMut" id="chooseMut">
+                <span class="input-group-text" for="patMutuelle">Mutuelle</span>
+                <select class="form-select" name="patMutuelle" id="patMutuelle">
                     <% formPatient.forEach(function(res){ %>
-                        <option value="<%= res.mut_Nom %>"><%= res.mut_Nom %></option>
+                        <option value="<%= res.mut_Id %>"><%= res.mut_Nom %></option>
                     <% }) %>  
                 </select>
             </div>

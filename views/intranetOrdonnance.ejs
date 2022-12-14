@@ -8,6 +8,7 @@
         <ul class="list-group"><% dataOrdonnance.forEach(function(res){ %>
             <li class="list-group-item d-flex align-items-center">
                 <!-- <div><input type="text" value="<%= res.med_Id %>" disabled hidden></div> -->
+                <div><strong><%= res.ordo_Id %></strong></div>
                 <div><strong><%= res.ordo_Date %></strong></div>
                 <div><strong><%= res.pat_Nom %></strong><%= res.pat_Prenom %> - <%= res.pat_Naissance %></div>
                 <div><strong>Souffrant de : </strong><%= res.path_Nom %></div>

@@ -38,17 +38,74 @@ const Ordonnance = {
         })
     },
 
-    async formulaireOrdonnance() {
+    async ajouterOrdonnance(req) {
 
-        
+        let ordoDate = req.body.ordoDate
+        let medId = req.body.medId
+        let patId = req.body.patId
+        let pathId = req.body.pathId
+
+        let requete = "INSERT INTO ordonnance (ordo_Date, ordo_PathId, ordo_MedId, ordo_PatId) VALUES (?, ?, ?, ?)"
+
+        return new Promise((reussi, echec)=>{
+    
+            mysqlconnexion.query(requete, [ordoDate, pathId, medId, patId], (err, lignes, champs) => {
+    
+                if(err){
+    
+                    return echec(err)
+    
+                }
+    
+                return reussi(lignes)
+    
+            })
+        })
     },
 
-    async ajouterOrdonnance() {
+    async afficherUneOrdonnance(req) {
 
+        let ordoId = req.params.id
+
+        let requete = "SELECT * FROM ordonnance WHERE ordo_Id = ?"
+
+        return new Promise((reussi, echec)=>{
+    
+            mysqlconnexion.query(requete, [ordoId], (err, lignes, champs) => {
+    
+                if(err){
+    
+                    return echec(err)
+    
+                }
+    
+                return reussi(lignes)
+    
+            })
+        })
     },
 
-    async modifierOrdonnance() {
+    async modifierOrdonnance(req) {
 
+        let ordoId = req.params.id
+        let ordoDate = req.body.ordoDate
+        let ordoPatient = req.body.ordoPatId
+        let ordoMedecin = req.body.ordoMedId
+        let ordoPathologie = req.body.ordoPathId
+
+        let requete = "UPDATE ordonnance SET ordo_Date = ?, ordo_PatId = ?, ordo_MedId = ?, ordo_PathId = ? WHERE ordo_Id = ?"
+
+        return new Promise((reussi, echec) => {
+
+            mysqlconnexion.query(requete, [ordoDate, ordoPatient, ordoMedecin, ordoPathologie, ordoId], (err, lignes, champs) => {
+
+                if (err) {
+                    return echec(err)
+                }
+
+                return reussi(lignes)
+            })
+        })
     },
 
     async supprimerOrdonnance(req) {

@@ -78,6 +78,38 @@ const Medicament = {
         })
     },
 
+    async afficherMedicTypeDISTINCT() {
+
+        let requete = "select DISTINCT medic_Type from medicament"
+
+        return new Promise((reussi, echec) => {
+            mysqlconnexion.query(requete, (err, lignes)=> {
+
+                if (err) {
+                    return echec(err)
+                }
+
+                return reussi(lignes)
+            })
+        })
+    },
+
+    async afficherMedicNomDISTINCT() {
+
+        let requete = "select DISTINCT medic_Nom from medicament"
+
+        return new Promise((reussi, echec) => {
+            mysqlconnexion.query(requete, (err, lignes)=> {
+
+                if (err) {
+                    return echec(err)
+                }
+
+                return reussi(lignes)
+            })
+        })
+    },
+
     async modifierMedicament(req) {
 
         let medicId = req.params.id
