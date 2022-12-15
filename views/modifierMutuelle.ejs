@@ -18,32 +18,13 @@
                 </div>
                 <hr class="my-4">
                 <div class="col-md-12 text-center">
-                    <button type="submit" class="btn btn-success btn-block" id="btnAjouterMutuelle">Ajouter</button>
+                    <button type="submit" class="btn btn-success btn-block" id="btnModifierMutuelle">Modifier</button>
                 </div>
             </div>
             <% }) %> 
         </form>
     </div>
-    <a href="http://localhost:3000/diplome"><img src="/images/goback.png" class="li-icon"></a>
+    <a href="http://localhost:3000/mutuelle"><img src="/images/goback.png" class="li-icon"></a>
 </div>
-
-    <!-- <div> <% dataMutuelle.forEach(function(res){ %>
-
-        <form action="/mutuelle/modifier/<%= res.mut_Id %>" method="post" enctype="application/x-www-form-urlencoded">
-            <ul>
-                <li>
-                    <label for="mutNom">Nom : </label>
-                    <input type="text" name="mutNom" id="mutNom" value="<%= res.mut_Nom %>">
-
-                    <label for="mutTaux">Nom : </label>
-                    <input type="number" name="mutTaux" id="mutTaux" value="<%= res.mut_Taux %>">
-
-                    <button type="submit">Valider</button>
-                </li>
-            <% }) %> 
-            </ul>
-        </form>
-    </div>
-    <a href="http://localhost:3000/mutuelle">⬅️</a> -->
 
 <%- include('footer') %>

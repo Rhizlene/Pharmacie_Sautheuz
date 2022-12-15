@@ -2,7 +2,7 @@
 
 <div id="inputContainer" class="container w-50 p-5">
     <div class="mb-4 text-center display-4">
-        <h1 >Ajouter un Pathologie</h1>
+        <h1 >Modifier une Pathologie</h1>
     </div>
     <div> <% dataPathologie.forEach(function(res){ %>
         <form action="/pathologie/modifier/<%= res.path_Id %>" method="post" enctype="application/x-www-form-urlencoded">
@@ -13,28 +13,13 @@
                 </div>
                 <hr class="my-4">
                 <div class="col-md-12 text-center">
-                    <button type="submit" class="btn btn-success btn-block" id="btnAjouterPathologie">Ajouter</button>
+                    <button type="submit" class="btn btn-success btn-block" id="btnModifierPathologie">Modifier</button>
                 </div>
             </div>
             <% }) %> 
         </form>
     </div>
 </div>
-
-    <!-- <div> <% dataPathologie.forEach(function(res){ %>
-
-        <form action="/pathologie/modifier/<%= res.path_Id %>" method="post" enctype="application/x-www-form-urlencoded">
-            <ul>
-                <li>
-                    <label for="pathNom">Nom : </label>
-                    <input type="text" name="pathNom" id="pathNom" value="<%= res.path_Nom %>">
-
-                    <button type="submit">Valider</button>
-                </li>
-            <% }) %> 
-            </ul>
-        </form>
-    </div>
-    <a href="http://localhost:3000/pathologie">⬅️</a> -->
+<a href="http://localhost:3000/pathologie"><img src="/images/goback.png" class="li-icon"></a>
 
 <%- include('footer') %>

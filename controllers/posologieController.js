@@ -8,7 +8,7 @@ const controlPos = {
 
         try {
             
-            const dataPos = await modelPos.Posologie.afficherUnePosologiePourUneOrdonnance(req)
+            const dataPos = await modelPos.Posologie.afficherPosologie(req)
 
             if (dataPos) {
                 res.render('intranetPosologie', {dataPosologie : dataPos})
@@ -53,6 +53,64 @@ const controlPos = {
                 res.render("formulairePosologie")
             } 
         } catch (error) {
+            console.log(error)
+        }
+    },
+
+    async afficherUnePosologie(req, res) {
+
+        try {
+            
+            const dataPos = await modelPos.Posologie.afficherUnePosologie(req)
+            const dataMedic = await modelMedic.Medicament.afficherMedicament(req)
+
+            if (dataPos && dataMedic) {
+                res.render("modifierPosologie", {dataPosologie : dataPos, dataMedicament : dataMedic})
+
+            }else {
+                res.render("modifierPosologie", {dataPosologie : {}, dataMedicament : {}})
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    async modifierPosologie(req, res) {
+
+        try {
+            
+            const data = await modelPos.Posologie.modifierPosologie(req)
+
+            if (data) {
+                res.redirect("/ordonnance")
+
+            }else {
+                console.log("probleme")
+                res.redirect("posologie/modifier/" + req.params.posId)
+            } 
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    async supprimerPosologie(req, res){
+
+        try {
+    
+            const data = await modelPos.Posologie.supprimerPosologie(req)
+    
+            if(data){
+    
+                res.redirect("/ordonnance");
+    
+            }else{
+    
+                console.log("probleme");
+                res.redirect("/ordonnance");
+            }
+    
+        } catch (error) {
+    
             console.log(error)
         }
     }

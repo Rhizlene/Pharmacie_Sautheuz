@@ -18,7 +18,7 @@ mysqlconnexion.connect((err) => {
 
 const Posologie = {
 
-    async afficherUnePosologiePourUneOrdonnance(req) {
+    async afficherPosologie(req) {
 
         let ordoId = req.params.id
 
@@ -61,6 +61,69 @@ const Posologie = {
 
                 return reussi(lignes)
 
+            })
+        })
+    },
+
+    async afficherUnePosologie(req) {
+
+        let posId = req.params.id
+
+        let requete = "select * from posologie where pos_Id = ?"
+
+        return new Promise((reussi, echec) => {
+            mysqlconnexion.query(requete, [posId] ,(err, lignes)=> {
+
+                if (err) {
+                    return echec(err)
+                }
+
+                return reussi(lignes)
+            })
+        })
+    },
+
+    async modifierPosologie(req) {
+
+        let posId = req.params.id
+        let posOrdoId = req.body.posOrdoId
+        let posMedicQte = req.body.posMedicQte
+        let posDuree = req.body.posDuree
+        let posMedicId = req.body.posMedicId
+
+        let requete = "UPDATE posologie SET pos_OrdoId = ?, pos_MedicQte = ?, pos_Duree = ?, pos_MedicId = ? WHERE pos_Id = ?"
+
+        return new Promise((reussi, echec) => {
+
+            mysqlconnexion.query(requete, [posOrdoId, posMedicQte, posDuree, posMedicId, posId], (err, lignes, champs) => {
+
+                if (err) {
+                    return echec(err)
+                }
+
+                return reussi(lignes)
+            })
+        })
+    },
+
+    async supprimerPosologie(req) {
+
+        let posId = req.params.id
+    
+        let requete = "DELETE FROM posologie WHERE pos_Id = ?"
+    
+        return new Promise((reussi, echec)=>{
+    
+            mysqlconnexion.query(requete, [posId], (err, lignes, champs) => {
+    
+                if(err){
+    
+                    return echec(err)
+    
+                }
+    
+                return reussi(lignes)
+    
             })
         })
     }

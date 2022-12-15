@@ -2,7 +2,7 @@
 
 <div id="inputContainer" class="container w-50 p-5">
     <div class="mb-4 text-center display-4">
-        <h1 >Ajouter un Patient</h1>
+        <h1 >Modifier un Patient</h1>
     </div>
     <div> <% dataPatient.forEach(function(res){ %>
         <form action="/patient/modifier/<%= res.pat_Id %>" method="post" enctype="application/x-www-form-urlencoded">
@@ -43,48 +43,13 @@
                 <hr class="my-4">
         
                 <div class="col-md-12 text-center">
-                    <button type="submit" class="btn btn-success btn-block" >Ajouter</button>
+                    <button type="submit" class="btn btn-success btn-block" >Modifier</button>
                 </div>
             </div>
             <% }) %>
         </form>
     </div>
-    <a href="http://localhost:3000/diplome"><img src="/images/goback.png" class="li-icon"></a>
+    <a href="http://localhost:3000/patient"><img src="/images/goback.png" class="li-icon"></a>
 </div>
-
-    <!-- <div> <% dataPatient.forEach(function(res){ %>
-
-        <form action="/patient/modifier/<%= res.pat_Id %>" method="post" enctype="application/x-www-form-urlencoded">
-            <ul>
-                <li>
-                    <label for="patNom">Nom : </label>
-                    <input type="text" name="patNom" id="patNom" value="<%= res.pat_Nom %>">
-
-                    <label for="patPrenom">Prénom : </label>
-                    <input type="text" name="patPrenom" id="patPrenom" value="<%= res.pat_Prenom %>">
-
-                    <label for="patNaissance">Naissance :</label> 
-                    <input type="date" id="patNaissance" name="patNaissance" value="<%= res.pat_Naissance %>">
-
-                    <label for="patNumSecu">Numéro de sécurité sociale :</label> 
-                    <input type="text" id="patNumSecu" name="patNumSecu" value="<%= res.pat_NumSecu %>">
-
-                    <label for="patNumMut">Numéro de mutuelle (AMC) :</label> 
-                    <input type="text" id="patNumMut" name="patNumMut" value="<%= res.pat_NumMut %>">
-
-                    <label for="patMutuelle">Mutuelle :</label> 
-                    <select name="patMutuelle" id="patMutuelle">
-                        <% dataMutuelle.forEach(function(res){ %>
-                            <option value="<%= res.mut_Id %>"><%= res.mut_Nom %></option>
-                        <% }) %> 
-                    </select>
-
-                    <button type="submit">Valider</button>
-                </li>
-            <% }) %> 
-            </ul>
-        </form>
-    </div>
-    <a href="http://localhost:3000/patient">⬅️</a> -->
 
 <%- include('footer') %>
