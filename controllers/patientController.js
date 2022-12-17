@@ -111,7 +111,43 @@ const controlPat = {
     
             console.log(error)
         }
+    },
+
+    async rechercherPatient(req, res) {
+
+        try {
+            
+            const data = await modelPat.Patient.rechercherPatient(req)
+
+            if (data) {
+                res.render('recherchePatient', {dataPatient : data})
+
+            }else {
+                res.render('recherchePatient', {dataPatient : {} })
+            } 
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    async afficherRecherchePatient(req, res) {
+
+        try {
+
+            const data = await modelPat.Patient.rechercherPatient(req)
+
+            if (data) {
+                res.render("intranetPatient", {dataPatient : data})
+
+            }else {
+                console.log("probleme")
+                res.redirect("patient/recherche")
+            } 
+        } catch (error) {
+            console.log(error)
+        }
     }
+
 
 
 

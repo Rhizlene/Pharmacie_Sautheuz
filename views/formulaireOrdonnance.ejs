@@ -1,12 +1,12 @@
 <%- include('header_user') %>
 
 <div id="inputContainer" class="container w-50 p-5">
-    <div class="mb-4 text-center display-4">
+    <div class="mb-5 text-center display-4">
         <h1 >Ajouter une Ordonnance</h1>
     </div>
     <form action="/ordonnance/formulaire" method="post" enctype="application/x-www-form-urlencoded">
         <div class="row">
-            <hr class="my-4">
+            
             <div>Date de l'ordonnance :</div>
             <br>
             <div class="input-group mb-3">
@@ -48,7 +48,7 @@
                     <% }) %> 
                 </select>
             </div>
-            
+            <hr class="my-4">
             <div class="col-md-12 text-center">
                 <button type="submit" class="btn btn-success btn-block" id="btnAjouterOrdonnance">Ajouter</button>
             </div>

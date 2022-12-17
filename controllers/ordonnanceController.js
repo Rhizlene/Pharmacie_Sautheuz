@@ -124,6 +124,41 @@ const controlOrdo = {
     
             console.log(error)
         }
+    },
+
+    async rechercherOrdonnance(req, res) {
+
+        try {
+            
+            const data = await modelOrdo.Ordonnance.rechercherOrdonnance(req)
+
+            if (data) {
+                res.render('rechercheOrdonnance', {dataOrdonnance : data})
+
+            }else {
+                res.render('rechercheOrdonnance', {dataOrdonnance : {} })
+            } 
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    async afficherRechercheOrdonnance(req, res) {
+
+        try {
+
+            const data = await modelOrdo.Ordonnance.rechercherOrdonnance(req)
+
+            if (data) {
+                res.render("intranetOrdonnance", {dataOrdonnance : data})
+
+            }else {
+                console.log("probleme")
+                res.redirect("ordonnance/recherche")
+            } 
+        } catch (error) {
+            console.log(error)
+        }
     }
 }
 

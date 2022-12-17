@@ -9,5 +9,7 @@ routeur.post('/formulaire', ctrlOrdonnance.controlOrdo.ajouterOrdonnance)
 routeur.get('/modifier/:id', ctrlOrdonnance.controlOrdo.afficherUneOrdonnance)
 routeur.post('/modifier/:id', ctrlOrdonnance.controlOrdo.modifierOrdonnance)
 routeur.get("/supprimer/:id", ctrlOrdonnance.controlOrdo.supprimerOrdonnance)
+routeur.get('/recherche', ctrlOrdonnance.controlOrdo.rechercherOrdonnance)
+routeur.post('/recherche', ctrlOrdonnance.controlOrdo.afficherRechercheOrdonnance)
 
 module.exports = routeur;

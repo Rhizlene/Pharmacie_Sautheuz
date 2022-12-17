@@ -83,7 +83,7 @@ const Mutuelle = {
         let mutNom = req.body.mutNom
         let mutTaux = req.body.mutTaux
 
-        let requete = "UPDATE mutuelle SET mut_Nom = ?, mut_Taux = ? WHERE mut_Id = ?"
+        let requete = "UPDATE mutuelle SET mutNom = ?, mut_Taux = ? WHERE mut_Id = ?"
 
         return new Promise((reussi, echec) => {
 
@@ -119,8 +119,24 @@ const Mutuelle = {
             })
     },
 
-    async rechercherMutuelle() {
+    async rechercherMutuelle(req) {
+        let mutNom = req.body.mutNom
+        
+        let requete = "SELECT * FROM mutuelle where mut_Nom like ?"
 
+        return new Promise((reussi, echec) => {
+
+            mysqlconnexion.query(requete, [mutNom], (err, lignes, champs) => {
+
+                if (err) {
+                    return echec(err)
+                }
+
+                return reussi(lignes)
+            })
+        })
+        
+    
     }
 }
 

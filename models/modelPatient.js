@@ -146,8 +146,22 @@ const Patient = {
         })
     },
 
-    async rechercherPatient() {
+    async rechercherPatient(req) {
+        let patNom = req.body.patNom
+        
+        let requete = "SELECT * FROM patient,mutuelle where pat_Nom like ?"
 
+        return new Promise((reussi, echec) => {
+
+            mysqlconnexion.query(requete, [patNom], (err, lignes, champs) => {
+
+                if (err) {
+                    return echec(err)
+                }
+
+                return reussi(lignes)
+            })
+        })
     }
 }
 

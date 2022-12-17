@@ -9,5 +9,7 @@ routeur.post('/formulaire', ctrlMedicament.controlMedic.ajouterMedicament)
 routeur.get('/modifier/:id', ctrlMedicament.controlMedic.afficherUnMedicament)
 routeur.post('/modifier/:id', ctrlMedicament.controlMedic.modifierMedicament)
 routeur.get('/supprimer/:id', ctrlMedicament.controlMedic.supprimerMedicament)
+routeur.get('/recherche', ctrlMedicament.controlMedic.rechercherMedicament)
+routeur.post('/recherche', ctrlMedicament.controlMedic.afficherRechercheMedicament)
 
 module.exports = routeur;

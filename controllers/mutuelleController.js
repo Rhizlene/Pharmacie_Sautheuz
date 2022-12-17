@@ -102,7 +102,44 @@ const controlMut = {
         } catch (error) {
             console.log(error)
         }
+    },
+
+
+    async rechercherMutuelle(req, res) {
+
+        try {
+            
+            const data = await modelMut.Mutuelle.rechercherMutuelle(req)
+
+            if (data) {
+                res.render('rechercheMutuelle', {dataMutuelle : data})
+
+            }else {
+                res.render('rechercheMutuelle', {dataMutuelle : {} })
+            } 
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    async afficherRechercheMutuelle(req, res) {
+
+        try {
+
+            const data = await modelMut.Mutuelle.rechercherMutuelle(req)
+
+            if (data) {
+                res.render("intranetMutuelle", {dataMutuelle : data})
+
+            }else {
+                console.log("probleme")
+                res.redirect("mutuelle/recherche")
+            } 
+        } catch (error) {
+            console.log(error)
+        }
     }
+
 }
 
 

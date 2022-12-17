@@ -102,6 +102,41 @@ const controlMedic = {
         } catch (error) {
             console.log(error)
         }
+    },
+
+    async rechercherMedicament(req, res) {
+
+        try {
+            
+            const data = await modelMedic.Medicament.rechercherMedicament(req)
+
+            if (data) {
+                res.render('rechercheMedicament', {dataMedicament : data})
+
+            }else {
+                res.render('rechercheMedicament', {dataMedicament : {} })
+            } 
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    async afficherRechercheMedicament(req, res) {
+
+        try {
+
+            const data = await modelMedic.Medicament.rechercherMedicament(req)
+
+            if (data) {
+                res.render("intranetMedicament", {dataMedicament : data})
+
+            }else {
+                console.log("probleme")
+                res.redirect("medicament/recherche")
+            } 
+        } catch (error) {
+            console.log(error)
+        }
     }
 
 

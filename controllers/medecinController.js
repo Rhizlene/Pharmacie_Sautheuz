@@ -111,6 +111,41 @@ const controlMed = {
         } catch (error) {
             console.log(error)
         }
+    },
+
+    async rechercherMedecin(req, res) {
+
+        try {
+            
+            const data = await modelMed.Medecin.rechercherMedecin(req)
+
+            if (data) {
+                res.render('rechercheMedecin', {dataMedecin : data})
+
+            }else {
+                res.render('rechercheMedecin', {dataMedecin : {} })
+            } 
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    async afficherRechercheMedecin(req, res) {
+
+        try {
+
+            const data = await modelMed.Medecin.rechercherMedecin(req)
+
+            if (data) {
+                res.render("intranetMedecin", {dataMedecin : data})
+
+            }else {
+                console.log("probleme")
+                res.redirect("medecin/recherche")
+            } 
+        } catch (error) {
+            console.log(error)
+        }
     }
 
 

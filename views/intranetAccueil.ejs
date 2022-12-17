@@ -1,4 +1,108 @@
 <%- include('header_user') %>
+<div class="container w-100">
+  <div class="banderole">
+    <h4>Bienvenue dans votre intranet !👍</h4>
+  </div>  
+</div>
+
+<div class="container w-100 d-flex justify-content-between">
+
+  <div class="container w-25 mt-5">
+    <div class="box">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="wrapper">
+              <div class="accordionHeader">
+                <h2 class="accordionTitle">Parcourir les listes</h2>
+                <span class="icon plus"></span>
+              </div>
+              <div class="accordionBody">
+                <ul class="list-group">
+                  <li class="list-group-item bg-transparent"><a class="text-decoration-none link-success" href="http://localhost:3000/medecin">des Médecin</a></li>
+                  <li class="list-group-item bg-transparent"><a class="text-decoration-none link-success" href="http://localhost:3000/patient">des Patient</a></li>
+                  <li class="list-group-item bg-transparent"><a class="text-decoration-none link-success" href="http://localhost:3000/ordonnance">des Ordonnance</a></li>
+                  <li class="list-group-item bg-transparent"><a class="text-decoration-none link-success" href="http://localhost:3000/pathologie">des Pathologie</a></li>
+                  <li class="list-group-item bg-transparent"><a class="text-decoration-none link-success" href="http://localhost:3000/medicament">des Médicament</a></li>
+                  <li class="list-group-item bg-transparent"><a class="text-decoration-none link-success" href="http://localhost:3000/diplome">des Diplôme</a></li>
+                  <li class="list-group-item bg-transparent"><a class="text-decoration-none link-success" href="http://localhost:3000/mutuelle">des Mutuelle</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="wrapper">
+              <div class="accordionHeader">
+                <h2 class="accordionTitle">Ajouter</h2>
+                <span class="icon plus"></span>
+              </div>
+              <div class="accordionBody">
+                <ul class="list-group">
+                  <li class="list-group-item bg-transparent"><a class="text-decoration-none link-success" href="http://localhost:3000/medecin/formulaire">un Médecin</a></li>
+                  <li class="list-group-item bg-transparent"><a class="text-decoration-none link-success" href="http://localhost:3000/patient/formulaire">un Patient</a></li>
+                  <li class="list-group-item bg-transparent"><a class="text-decoration-none link-success" href="http://localhost:3000/ordonnance/formulaire">une Ordonnance</a></li>
+                  <li class="list-group-item bg-transparent"><a class="text-decoration-none link-success" href="http://localhost:3000/pathologie/formulaire">une Pathologie</a></li>
+                  <li class="list-group-item bg-transparent"><a class="text-decoration-none link-success" href="http://localhost:3000/medicament/formulaire">un Médicament</a></li>
+                  <li class="list-group-item bg-transparent"><a class="text-decoration-none link-success" href="http://localhost:3000/diplome/formulaire">un Diplôme</a></li>
+                  <li class="list-group-item bg-transparent"><a class="text-decoration-none link-success" href="http://localhost:3000/mutuelle/formulaire">une Mutuelle</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="wrapper">
+              <div class="accordionHeader">
+                <h2 class="accordionTitle">Rechercher</h2>
+                <span class="icon plus"></span>
+              </div>
+              <div class="accordionBody">
+                <ul class="list-group">
+                  <li class="list-group-item bg-transparent"><a class="text-decoration-none link-success" href="http://localhost:3000/medecin/recherche">un Médecin</a></li>
+                  <li class="list-group-item bg-transparent"><a class="text-decoration-none link-success" href="http://localhost:3000/patient/recherche">un Patient</a></li>
+                  <li class="list-group-item bg-transparent"><a class="text-decoration-none link-success" href="http://localhost:3000/ordonnance/recherche">une Ordonnance</a></li>
+                  <li class="list-group-item bg-transparent"><a class="text-decoration-none link-success" href="http://localhost:3000/medicament/recherche">un Médicament</a></li>
+                  <li class="list-group-item bg-transparent"><a class="text-decoration-none link-success" href="http://localhost:3000/mutuelle/recherche">une Mutuelle</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   
-hello word
+              
+    <script>
+      let accordionHeader = document.getElementsByClassName("accordionHeader");
+      let accordionBody = document.getElementsByClassName("accordionBody");
+      let accordionTitle = document.getElementsByClassName("accordionTitle");
+      let icon = document.getElementsByClassName("icon");
+              
+      for (let i = 0; i < accordionHeader.length; i++) {
+        accordionHeader[i].addEventListener("click", () => {
+              
+          if (parseInt(accordionBody[i].style.height) != accordionBody[i].scrollHeight) {
+            accordionBody[i].style.height = accordionBody[i].scrollHeight + "px";
+            accordionTitle[i].style.color = "#196c28";
+            icon[i].classList.remove("plus");
+            icon[i].classList.add("minus");
+          } else {
+            accordionBody[i].style.height = "0px";
+            accordionTitle[i].style.color = "#0a4e16";
+            icon[i].classList.toggle("plus");
+          }
+              
+          for (let j = 0; j < accordionBody.length; j++) {
+            if (j !== i) {
+              accordionBody[j].style.height = 0;
+              accordionTitle[j].style.color = "#0a4e16";
+              icon[j].classList.remove("minus");
+              icon[j].classList.add("plus");
+            }
+          }
+        });
+      }
+    </script>
+  </div>
+
+  <div class="container w-75 mt-5 d-flex justify-content-center"> 
+    <small class="text-muted">Emplacement du diagramme</small><br>
+  </div>
+
+</div>
 <%- include('footer') %>

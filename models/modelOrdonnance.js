@@ -129,8 +129,23 @@ const Ordonnance = {
         })
     },
 
-    async rechercherOrdonnance() {
+    async rechercherOrdonnance(req) {
+        let ordoDate = req.body.ordoDate
+        
+        let requete = "SELECT * FROM ordonnance, patient, medecin, diplome, pathologie where ordo_Date like ?"
 
+        return new Promise((reussi, echec) => {
+
+            mysqlconnexion.query(requete, [ordoDate], (err, lignes, champs) => {
+
+                if (err) {
+                    return echec(err)
+                }
+
+                return reussi(lignes)
+            })
+        })
+        
     }
 }
 

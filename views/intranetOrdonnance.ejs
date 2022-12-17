@@ -4,17 +4,22 @@
     <h1 >Liste des ordonnances</h1>
 </div>
 
-    <div class="container w-75 mt-5 bg-light p-3 li-container"> 
+    <div class="container w-100 mt-5 bg-light p-3 li-container"> 
         <ul class="list-group"><% dataOrdonnance.forEach(function(res){ %>
-            <li class="list-group-item d-flex align-items-center">
-                <!-- <div><input type="text" value="<%= res.med_Id %>" disabled hidden></div> -->
+            <li class="list-group-item d-flex align-items-center justify-content-between">
                 <div><strong><%= res.ordo_Id %></strong></div>
-                <div><strong><%= res.ordo_Date %></strong></div>
-                <div><strong><%= res.pat_Nom %></strong><%= res.pat_Prenom %> - <%= res.pat_Naissance %></div>
-                <div><strong>Souffrant de : </strong><%= res.path_Nom %></div>
-                <div> <strong>Dr.</strong>  <%= res.med_Nom %> <%= res.med_Prenom %> (<i><%= res.dip_Nom %></i>) / <img src="/images/phone.png" class="li-icon">: <%= res.med_Num %></div>
-                <div><a href="http://localhost:3000/posologie/<%= res.ordo_Id %> ">voir les Médicament</a></div>
-                <div><a href="http://localhost:3000/ordonnance/modifier/<%= res.ordo_Id %> "><img src="/images/update.png" class="li-icon"></a> <a href="http://localhost:3000/ordonnance/supprimer/<%= res.ordo_Id %>"><img src="/images/delete.png" class="li-icon"></a> <a href="http://localhost:3000/posologie/formulaire/<%= res.ordo_Id %>">aj Posologie</a></div>
+                <div class="">
+                    <div><strong><%= res.ordo_Date %></strong></div>
+                    <div><strong><%= res.pat_Nom %></strong> <%= res.pat_Prenom %> - <%= res.pat_Naissance %></div>
+                    <div><strong>Souffrant de : </strong><%= res.path_Nom %></div>
+                </div>
+                <div>    
+                    <div> <strong>Dr.</strong>  <%= res.med_Nom %> <%= res.med_Prenom %> (<i><%= res.dip_Nom %></i>) <br> <img src="/images/phone.png" class="li-icon">: <%= res.med_Num %></div>
+                </div>
+                <div>
+                    <div><a class="text-decoration-none link-success" href="http://localhost:3000/posologie/<%= res.ordo_Id %> ">Voir les Médicaments</a> <br><a class="text-decoration-none link-success" href="http://localhost:3000/posologie/formulaire/<%= res.ordo_Id %>">Ajouter Posologie</a></div>
+                    <div class=""><a href="http://localhost:3000/ordonnance/modifier/<%= res.ordo_Id %> "><img src="/images/update.png" class="li-icon"></a> <a href="http://localhost:3000/ordonnance/supprimer/<%= res.ordo_Id %>"><img src="/images/delete.png" class="li-icon"></a></div>
+                </div>
             </li>
         <% }) %> 
         </ul>

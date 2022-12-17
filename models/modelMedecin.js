@@ -125,7 +125,22 @@ const Medecin = {
         })
     },
 
-    async rechercherMedecin () {
+    async rechercherMedecin (req) {
+        let medNom = req.body.medNom
+        
+        let requete = "SELECT * FROM medecin where med_Nom like ?"
+
+        return new Promise((reussi, echec) => {
+
+            mysqlconnexion.query(requete, [medNom], (err, lignes, champs) => {
+
+                if (err) {
+                    return echec(err)
+                }
+
+                return reussi(lignes)
+            })
+        })
         
     }
 }
