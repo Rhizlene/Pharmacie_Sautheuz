@@ -103,14 +103,18 @@ insert into mutuelle (mut_Nom, mut_Taux) values ('Harmonie mutuelle', 65);
 insert into mutuelle (mut_Nom, mut_Taux) values ('La mutuelle generale', 62);
 
 insert into pathologie (path_Nom) values ('Cancer de la prostate');
+insert into pathologie (path_Nom) values ('Cancer du sein');
 
 insert into posologie (pos_OrdoId, pos_MedicQte, pos_Duree, pos_MedicId) values (1, 6, 3, 1);
 insert into posologie (pos_OrdoId, pos_MedicQte, pos_Duree, pos_MedicId) values (1, 10, 1, 2);
+insert into posologie (pos_OrdoId, pos_MedicQte, pos_Duree, pos_MedicId) values (2, 9, 2, 3);
 
 insert into medicament (medic_Nom, medic_QteStock, medic_Type) values ('Smecta', 15, 'comprimé');
 insert into medicament (medic_Nom, medic_QteStock, medic_Type) values ('Taz', 51, 'Stupéfiant');
+insert into medicament (medic_Nom, medic_QteStock, medic_Type) values ('Doliprane', 11, 'pastille');
 
 insert into ordonnance (ordo_Date, ordo_MedId, ordo_PathId, ordo_PatId) values (DATE '2022-10-19', 2, 1, 1);
+insert into ordonnance (ordo_Date, ordo_MedId, ordo_PathId, ordo_PatId) values (DATE '2022-12-25', 1, 2, 2);
 
 INSERT INTO pharmacien (phar_Nom, phar_Prenom, phar_Mdp, phar_Identifiant) VALUES ('AUBISTROT', 'Pascal', '123', 'Vive_La_Buvette');
 INSERT INTO pharmacien (phar_Nom, phar_Prenom, phar_Mdp, phar_Identifiant) VALUES ('DELACOUETTE', 'Laurent', '456', 'Il_Fait_Pas_Chaud');
