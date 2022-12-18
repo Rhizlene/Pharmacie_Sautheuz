@@ -20,8 +20,10 @@ dans la région, le propriétaire de cette SPFPL souhaite une application web pe
 
 # ORGANISATION
 
-__motif d'architecture logicielle__
+__Motif d'architecture logicielle__
 + Architecture Modèle/Vue/Contrôleur (MVC)
+
+-----------------------------------------------
 
 Nous avons utilisé les technologies suivantes:
 
