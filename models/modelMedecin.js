@@ -128,7 +128,7 @@ const Medecin = {
     async rechercherMedecin (req) {
         let medNom = req.body.medNom
         
-        let requete = "SELECT * FROM medecin where med_Nom like ?"
+        let requete = "SELECT * FROM medecin, diplome where med_DipId = dip_Id AND med_Nom like ?"
 
         return new Promise((reussi, echec) => {
 

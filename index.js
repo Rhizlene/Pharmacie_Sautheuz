@@ -13,6 +13,7 @@ const mutuelleRoutes = require('./routes/routesMutuelle.js');
 const ordonnanceRoutes = require('./routes/routesOrdonnance.js');
 const diplomeRoutes = require('./routes/routesDiplome.js');
 const posologieRoutes = require('./routes/routesPosologie.js');
+const connexionRoutes = require('./routes/routesConnexion.js');
 
 // activer les dépendances pour Express et EJS
 let app = express()
@@ -57,3 +58,4 @@ app.use('/pathologie', pathologieRoutes);
 app.use('/ordonnance', ordonnanceRoutes);
 app.use('/diplome', diplomeRoutes);
 app.use('/posologie', posologieRoutes);
+app.use('/inscription', connexionRoutes);

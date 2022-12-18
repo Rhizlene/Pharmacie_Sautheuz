@@ -132,7 +132,7 @@ const Ordonnance = {
     async rechercherOrdonnance(req) {
         let ordoDate = req.body.ordoDate
         
-        let requete = "SELECT * FROM ordonnance, patient, medecin, diplome, pathologie where ordo_Date like ?"
+        let requete = "SELECT * FROM ordonnance, patient, medecin, diplome, pathologie WHERE ordo_PatId=pat_Id AND ordo_MedId = med_Id AND ordo_PathId = path_Id AND med_DipId = dip_Id AND ordo_Date like ?"
 
         return new Promise((reussi, echec) => {
 
