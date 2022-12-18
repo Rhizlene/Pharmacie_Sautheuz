@@ -20,6 +20,11 @@ dans la région, le propriétaire de cette SPFPL souhaite une application web pe
 
 # ORGANISATION
 
+__Maquettes et diagrammes du projet__
+
+Nous avons utilisés le site figma pour élaborer nos maquettes et diagrammes
+<a href="https://www.figma.com/file/nAQHtUt5CkzNIyLk6PREF8/diagrame-utilisation-pharmacie?node-id=0%3A1&t=zEkO0qDOsu9EMiqR-1">Maquette et diagrammes sur Figma<a>
+
 __Motif d'architecture logicielle__
 + Architecture Modèle/Vue/Contrôleur (MVC)
 
