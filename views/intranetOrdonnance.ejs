@@ -8,10 +8,11 @@
         <ul class="list-group"><% dataOrdonnance.forEach(function(res){ %>
             <li class="list-group-item d-flex align-items-center justify-content-between">
                 <div><strong><%= res.ordo_Id %></strong></div>
-                <div class="">
-                    <div><strong><%= res.ordo_Date %></strong></div>
-                    <div><strong><%= res.pat_Nom %></strong> <%= res.pat_Prenom %> - <%= res.pat_Naissance %></div>
-                    <div><strong>Souffrant de : </strong><%= res.path_Nom %></div>
+                <div><strong><%= res.ordo_Date.toLocaleDateString('el-GR') %></strong></div>
+                <div>
+                    <div><strong><%= res.pat_Nom %></strong> <%= res.pat_Prenom %></div>
+                    <div>Date de naissance : <strong><%= res.pat_Naissance.toLocaleDateString('el-GR') %></strong></div>
+                    <div>Souffrant de : <strong> <%= res.path_Nom %></strong></div>
                 </div>
                 <div>    
                     <div> <strong>Dr.</strong>  <%= res.med_Nom %> <%= res.med_Prenom %> (<i><%= res.dip_Nom %></i>) <br> <img src="/images/phone.png" class="li-icon">: <%= res.med_Num %></div>

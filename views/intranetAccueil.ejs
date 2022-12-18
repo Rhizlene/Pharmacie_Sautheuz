@@ -1,7 +1,7 @@
 <%- include('header_user') %>
 <div class="container w-100">
   <div class="banderole">
-    <h4>Bienvenue dans votre intranet !👍</h4>
+    <h4>Bienvenue dans votre intranet !</h4>
   </div>  
 </div>
 
@@ -101,7 +101,38 @@
   </div>
 
   <div class="container w-75 mt-5 d-flex justify-content-center"> 
-    <small class="text-muted">Emplacement du diagramme</small><br>
+
+    <div>
+      <canvas id="chart" width="800" height="500"></canvas>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script>
+      const ctx = document.getElementById('chart');
+      const xlabel = [];
+      const xdata = [];
+    
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: xlabel,
+          datasets: [{
+            label: 'Etat des stocks',
+            data: xdata,
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+    </script>
+     
   </div>
 
 </div>
