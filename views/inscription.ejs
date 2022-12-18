@@ -13,17 +13,19 @@
               </div>
             
               <form action="/inscription" method="post" enctype="application/x-www-form-urlencoded">
-                <div class="form-outline mb-4">
-                  <label class="form-label" for="pharIdentifiant" style="font-size:smaller; color: rgb(103, 103, 103);">Identifiant</label>
-                  <input type="text" id="pharIdentifiant" class="form-control form-control-lg" placeholder="Ex : Corleone" name="pharIdentifiant" />
+                <div class="row">
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="pharIdentifiant" style="font-size:smaller; color: rgb(103, 103, 103);">Identifiant</label>
+                    <input type="text" id="pharIdentifiant" class="form-control form-control-lg" placeholder="Ex : Corleone" name="pharIdentifiant" />
+                  </div>
+      
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="pharMdp" style="font-size:smaller; color: rgb(103, 103, 103);">Mot de passe</label>
+                    <input type="password" id="pharMdp" class="form-control form-control-lg" placeholder="Ex : sautheuz894" name="pharMdp" />
+                  </div>
+      
+                  <button type="submit" class="btn btn-success btn-lg btn-block m-3" id="btnConnexion">Connexion</button>
                 </div>
-    
-                <div class="form-outline mb-4">
-                  <label class="form-label" for="pharMdp" style="font-size:smaller; color: rgb(103, 103, 103);">Mot de passe</label>
-                  <input type="password" id="pharMdp" class="form-control form-control-lg" placeholder="Ex : sautheuz894" name="pharMdp" />
-                </div>
-    
-                <button type="submit" class="btn btn-success btn-lg btn-block m-3" id="btnConnexion">Connexion</button>
               </form>
 
               <hr class="my-4">
