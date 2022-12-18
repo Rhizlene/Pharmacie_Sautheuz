@@ -20,27 +20,29 @@ dans la région, le propriétaire de cette SPFPL souhaite une application web pe
 
 # ORGANISATION
 
-__Maquettes et diagrammes du projet__
+__Maquettes et diagrammes du projet :__
 
-Nous avons utilisés le site figma pour élaborer nos maquettes et diagrammes
-<a href="https://www.figma.com/file/nAQHtUt5CkzNIyLk6PREF8/diagrame-utilisation-pharmacie?node-id=0%3A1&t=zEkO0qDOsu9EMiqR-1">Maquette et diagrammes sur Figma<a>
+<p>Nous avons utilisés le site figma pour élaborer nos maquettes et diagrammes</p><br>
++ <a href="https://www.figma.com/file/nAQHtUt5CkzNIyLk6PREF8/diagrame-utilisation-pharmacie?node-id=0%3A1&t=zEkO0qDOsu9EMiqR-1">Maquette et diagrammes sur Figma<a>
 
-__Motif d'architecture logicielle__
+
+
+__Motif d'architecture logicielle :__
 + Architecture Modèle/Vue/Contrôleur (MVC)
 
------------------------------------------------
 
-Nous avons utilisé les technologies suivantes:
 
-__Front-End__
+<u>Nous avons utilisé les technologies suivantes:</u>
+
+__Front-End :__
 + Le framework Bootstrap 5
 + Le framework Chartjs
 
-__Back-End__
+__Back-End :__
 + Le framework NodeJS
 + Le framework ExpressJS
 
-__Gestion BDD__
+__Gestion BDD :__
 + SQL sous PHPMyAdmin
 
 ------------------------------------------------------------------------------------------------------------
