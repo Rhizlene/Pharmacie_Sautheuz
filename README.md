@@ -1,6 +1,6 @@
 
 # Pharmacie_Sautheuz
-<div style="max-height: 150px;" align="center">
+<div height="150" align="center">
     <img src="public/images/pharmacie.png" />
 </div>
 
