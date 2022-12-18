@@ -20,7 +20,7 @@
                 <!-- <td class="list-group-item d-flex align-items-center"> -->
                     <td><strong><%= res.pat_Id %></strong></td>
                     <td><%= res.pat_Nom %> <%= res.pat_Prenom %></td>
-                    <td><%= res.pat_Naissance %></td>
+                    <td><%= res.pat_Naissance.toLocaleDateString('el-GR') %></td>
                     <td><%= res.pat_NumSecu %></td>
                     <td><%= res.mut_Nom %> <br> <img src="/images/phone.png" class="li-icon">: <%= res.pat_NumMut %></td>
                     <td class=" justify-content-between align-items-center"><a href="http://localhost:3000/patient/modifier/<%= res.pat_Id %> "><img src="/images/update.png" class="li-icon"></a> <a href="http://localhost:3000/patient/supprimer/<%= res.pat_Id %>"><img src="/images/delete.png" class="li-icon"></a></td>

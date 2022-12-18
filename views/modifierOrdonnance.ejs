@@ -12,7 +12,7 @@
                 <br>
                 <div class="input-group mb-3">
                     <span class="input-group-text" for="ordoDate">Date</span>
-                    <input type="date" class="form-control" id="ordoDate" name="ordoDate" value="<%= res.ordo_Date %> ">
+                    <input type="date" class="form-control" id="ordoDate" name="ordoDate" value="<%= res.ordo_Date.toLocaleDateString('el-GR') %> ">
                 </div>
                 <hr class="my-4">
                 <div>Information du patient :</div>
@@ -51,7 +51,7 @@
                 </div>
                 
                 <div class="col-md-12 text-center">
-                    <button type="submit" class="btn btn-success btn-block" id="btnModifierOrdonnance">Modifier</button>
+                    <button type="submit" class="btn btn-success btn-block">Modifier</button>
                 </div>
             </div>
         </form><% }) %> 
