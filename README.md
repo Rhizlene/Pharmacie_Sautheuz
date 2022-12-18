@@ -16,21 +16,20 @@ Il s'agit en fait d'une pharmacie, la pharmacie SAUTEUHZ à Givors, près de Lyo
 dans la région, le propriétaire de cette SPFPL souhaite une application web permettant aux personnels de la pharmacie de gérer les clients ayant des traitements réguliers, nécessitant un suivi particulier ainsi que les stock pour l'ensemble des médicaments.
 
 ------------------------------------------------------------------------------------------------------------
-
+s
 
 # ORGANISATION
 
 __Maquettes et diagrammes du projet :__
 
-<p>Nous avons utilisés le site figma pour élaborer nos maquettes et diagrammes</p><br>
 + <a href="https://www.figma.com/file/nAQHtUt5CkzNIyLk6PREF8/diagrame-utilisation-pharmacie?node-id=0%3A1&t=zEkO0qDOsu9EMiqR-1">Maquette et diagrammes sur Figma<a>
 
-
+<br>
 
 __Motif d'architecture logicielle :__
 + Architecture Modèle/Vue/Contrôleur (MVC)
 
-
+<br>
 
 <u>Nous avons utilisé les technologies suivantes:</u>
 
@@ -49,5 +48,4 @@ __Gestion BDD :__
 
 
 Ce projet est réalisé par : [Maceo GONDRE](https://github.com/Maceoggit) et [Rhizlène ALFARDOUS](https://github.com/Rhizlene)
-
 
