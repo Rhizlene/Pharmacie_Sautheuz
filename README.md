@@ -16,7 +16,10 @@ Il s'agit en fait d'une pharmacie, la pharmacie SAUTEUHZ à Givors, près de Lyo
 dans la région, le propriétaire de cette SPFPL souhaite une application web permettant aux personnels de la pharmacie de gérer les clients ayant des traitements réguliers, nécessitant un suivi particulier ainsi que les stock pour l'ensemble des médicaments.
 
 ------------------------------------------------------------------------------------------------------------
+<<<<<<< HEAD
 s
+=======
+>>>>>>> f005b815768da3b67f66335cdbe333fc8a7e1886
 
 # ORGANISATION
 
@@ -48,5 +51,4 @@ __Gestion BDD :__
 
 
 Ce projet est réalisé par : [Maceo GONDRE](https://github.com/Maceoggit) et [Rhizlène ALFARDOUS](https://github.com/Rhizlene)
-
 
